@@ -126,7 +126,7 @@ Paragraph 1
   - Command: `$f(x) = (x+2)^2 - 9$` -> $f(x) = (x+2)^2 - 9$
   - Command 2: `\( f(x) = (x+2)^2 - 9 \)`
 - Force Display Style in inline mode: `\( \displaystyle f(x) = (x+2)^2 - 9 \)`
-- Force inline math in display mode: `\[ \textsyle f(x) = (x+2)^2 - 9 \]`
+- Force inline math in display mode: `\[ \textstyle f(x) = (x+2)^2 - 9 \]`
 
 ## 2. Basic Notation
 | Command | Description | Result |
@@ -176,11 +176,6 @@ Paragraph 1
 |---|---|---|
 | `\begin{tabular} ... \end{tabular}` | Creation of table |
 | `\begin{tabular}{alignment} ... \end{tabular}` | Alignment & Number of columns of table | - alignment = `lcr` -> 3 Columns: Left, Center and Right Justified<br>- alignment = `\|lc\|\|r` -> A vertical bar is added before Column 1 and double vertical bars are added before Column 3|
-| `&` | Moves to next cell |
-| `\\` | Starts a new row |
-| `\hline` | Creates horizontal line directly below the command |
-| `\hline \hline` | Creates double horizontal line directly below the command |
-
 
 E.g.:<br>
 ```tex
@@ -189,6 +184,121 @@ E.g.:<br>
   l    & c    & r
 \end{tabular}
 ```
+| | | |
+|---|---|---|
+| `&` | Moves to next cell |
+| `\\` | Starts a new row |
+| `\hline` | Creates horizontal line directly below the command |
+| `\hline \hline` | Creates double horizontal line directly below the command |
 
+Package: **hhline**
+`\hhline{ commands }`:
+- `=` : A double hline
+- `-` : A single hline
+- `~` : A column without hline
+- `|` : A vline which 'cuts' through a double/single hline
+- `:` : A vline which is broken by a double line
+- `#` : A double hline segment between two vlines
+- `t` : The top half of a double hline segment
+- `b` : The bottom half of a double hline segment
 
+### 1.1. Useful Packages
+- booktabs: More attractive tables
+- tabularx: Controlling width of columns
+- colortbl: Coloring table
+- longtable: Creating table that spans across multiple pages
 
+## 2. Array Environment
+- Arrays work like tables (Use same commands)
+- Array must be in math mode
+
+E.g.:
+```tex
+\begin{align*}
+\begin{array}{ccc} 
+  a_{11} & a_{12} & a_{13} \\
+  a_{21} & a_{22} & a_{23}
+\end{array}
+\end{align*}
+```
+
+Result:
+$$
+\left( \begin{array}{c|cc} 
+  a_{11} & a_{12} & \cdots \\
+  \hline
+  a_{21} & a_{22} & \cdots \\
+  \vdots & \vdots & \ddots
+\end{array} \right)
+$$
+
+| Command | Description |
+|---|---|
+| `\begin{pmatrix}` | Used instead of `array`. Includes the parentheses. No need to declare no. of columns |
+| `\begin{bmatrix}` | Used instead of `array`. Includes the brackets. No need to declare no. of columns |
+| `\cdots` | Adds three dots vertically |
+| `\vdots` | Adds three dots vertcally |
+| `\ddots` | Adds three dots diagonically |
+| `\iddots` | Mirrored `\ddots`<br>Package: **mathdots** |
+
+## 3. Merging Columns and Rows
+
+### 3.1. Columns
+`multicolumn{num_of_columns}{alignment}{contents}`:
+
+```tex
+\begin{tabular}{|c|c|c|}
+\hline
+Text & Text & Text \\
+\multicolumn{3}{|c|}{Text} \\
+Text & \multicolumn{2}{|l|}{Text} \\
+\hline
+\end{tabular}
+```
+
+### 3.2. Rows
+Package: **multirow**
+
+`\multirow[ vertical_alignment=t/c (Default) /b ]{ num_ rows }{ width=*/Xcm }{ contents }`:
+
+```tex
+\begin{tabular}{|c|c|}
+\hline
+\multirow[c]{3}{*}{Text} & Text \\
+ & Text \\
+\hline
+\end{tabular}
+```
+
+---
+
+# Calculus Notation
+
+## 1. Functions
+| Command | Description | Result |
+|---|---|---|
+| `\cdots` | Adds three dots | $f(x) = a_1 + a_2 + \cdots + a_n$ |
+| `\sin(x)` | sin | $\sin(x) \text{ / } \sin{x} \text{ / } sinx \text{ (Not correct) }$ |
+| `\operatorname{fun}(x)` | Create custom function | $\operatorname{fun}(x)$ |
+| `\lim_{x \to X}` | Limit | $\lim_{x \to \infty} \text{ / } {\displaystyle \lim_{x \to \infty}}$ |
+| `\to` | Arrow | $\to$ |
+| `\infty` / `\infin` | infinity | $\infty$ |
+| `\sum_{n=1}^{N}` | Sum | $\sum_{n=1}^{N} \text{ / } {\displaystyle \sum_{n=1}^{N}}$ |
+| `\substack{}` | Adds more lines of information below | $\sum_{\substack{n=1 \\ n \text{ odd}}}^{N} \text{ / } {\displaystyle \sum_{\substack{n=1 \\ n \text{ odd}}}^{N}}$ |
+| `\int` / `\iint` / `\iiint` | Single/Double/Triple integral | $\int \text{ / } \iint \text{ / } \iiint$ |
+| `\int_{0}^{\infty}` | Integral with limits | $\int_0^\infty \text{ / } {\displaystyle \int_0^\infty \text{ / } \int \limits_0^\infty}$ |
+| `\,` / `\:` / `\;` / `\quad` | Spacing commands | $\int \operatorname{f}(x)dx \text{ / } \int \operatorname{f}(x) \, dx \text{ / } \\ \int \operatorname{f}(x) \: dx \text{ / } \int \operatorname{f}(x) \; dx \text{ / } \\ \int \operatorname{f}(x) \quad dx$ |
+| `\mathrm{}` | Roman font | $\int \operatorname{f}(x)\,\mathrm{d}x$ |
+| | Different format of integrals | $\displaystyle \int_a^b \operatorname{f}(x)\,dx = \operatorname{F}(x) \bigg \vert_a^b \\ \space \\ \textstyle \int_a^b \operatorname{f}(x)\,dx = \operatorname{F}(x) \big \vert_a^b$ |
+| `\partial` | Partial Derivatives | $\displaystyle \frac{\partial f}{\partial x}$ |
+| `'` / `''` / `^{(n)}` | Prime (Langrangian) Notation of derivatives | $f'(x) \text{ / } f^{(n)}x$ |
+| `\dot` / `\ddot` | Doot (Newtonian) Notation of derivatives | $\dot{\operatorname{f}}(x) \text{ / } \ddot{f}(x)$ |
+| `\vec{}` / `\langle ... \rangle` | Vectors | $\vec{r}(t) = \langle x(t), y(t), z(t) \rangle$ |
+| `\vv{}` | Vectors<br>Package: **esvect** |
+| `\vv*{}` | Vector ignores subscripts (Smaller width of arrow) |
+| `\nabla` | Upside Delta | $\nabla$ \
+| `\oint` | Close Integral | $\oint$ |
+
+---
+
+# Miscellaneous Notation
