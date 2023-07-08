@@ -20,7 +20,7 @@
 - [ ] [Hololens Emulator](https://learn.microsoft.com/en-us/windows/mixed-reality/develop/advanced-concepts/using-the-hololens-emulator)
 
 ### Code Used
-
+- [ ] [Thesis Template (Latex)](https://github.com/eparon/ece-upatras-thesis-template)
 
 ### Issues solved
 - Audio not playing when spatialize chekcbox is checked
