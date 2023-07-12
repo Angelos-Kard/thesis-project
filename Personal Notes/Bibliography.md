@@ -20,7 +20,7 @@
 - [ ] [Hololens Emulator](https://learn.microsoft.com/en-us/windows/mixed-reality/develop/advanced-concepts/using-the-hololens-emulator)
 
 ### Code Used
-- [ ] [Thesis Template (Latex)](https://github.com/eparon/ece-upatras-thesis-template)
+- [x] [Thesis Template (Latex)](https://github.com/eparon/ece-upatras-thesis-template)
 
 ### Issues solved
 - Audio not playing when spatialize chekcbox is checked
@@ -30,4 +30,10 @@
 
 ### Blindness
 - [x] Spatial perception in the blind: https://pubmed.ncbi.nlm.nih.gov/1203645/
-- [ ] Auditory Spatial Perception without Vision: https://pubmed.ncbi.nlm.nih.gov/28066286/
+- [x] Auditory Spatial Perception without Vision: https://pubmed.ncbi.nlm.nih.gov/28066286/
+- [ ] https://pubmed.ncbi.nlm.nih.gov/28407000/
+- [ ] https://pubmed.ncbi.nlm.nih.gov/34623459/
+- [ ] https://pubmed.ncbi.nlm.nih.gov/34623459/
+- [ ] https://www.researchgate.net/publication/14146784_Representation_of_space_in_blind_persons_Vision_as_a_spatial_sense
+- [ ] https://ceur-ws.org/Vol-2753/paper24.pdf
+- [ ] https://scholar.google.gr/scholar?q=space+recognition+for+visually+impaired&hl=el&as_sdt=0&as_vis=1&oi=scholart
