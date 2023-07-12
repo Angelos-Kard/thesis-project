@@ -32,6 +32,19 @@
      - Καλύτερη αναγνώριση όταν ο ήχος αντανακλάτε πίσω
    - Τυφλοί παράγωγουν ήχους για να αντιληφθούν αποστάσεις πχ χτύπημα μπαστουνιού
    - Όταν υπάρχει έλλειψη όρασης, χρησιμοποιούμε egocentric frame of reference για να προσδιορίουμε/αναγνωρίσουμε το χώρο
-   - Οι τυφλοί αδυνατούν να χρησιμοποιήσουν alocentric fram of reference (αναγνώριση θέσης ήχου σε σχέση με κάποιον άλλο και όχι σε σχέση με τον χρήστη)
+   - Οι τυφλοί αδυνατούν να χρησιμοποιήσουν allocentric frame of reference (αναγνώριση θέσης ήχου σε σχέση με κάποιο άλλο αντικείμενο/ήχο και όχι σε σχέση με τον χρήστη)
      - Οι τυφλοί echolocators δεν αντιμετώπιζαν ιδιαίτερα προβλήματα
-   - 
+   - Late-blind employ allocebtric frame of reference / Early-blind employ egocentric
+   - Early-blind
+     - Accurate to localize sound sources on the horizontal plane
+     - Less accurate on the vertical plane or estimating absolute distance of a source
+     - Trade-off in localization proficiency between vertical and horizontal plane
+     - Better in egocentric
+   - Late blind
+     - Due to visual input early in life, they face less problem in spatial hearing
+     - Assumptions (due to lack of data):
+       - no trade-off in localization proficiency between the horizontal and vertical planes
+       - no deficits in allocentric frame of reference
+   - Difficult to have accurate results comparable with real-life scenarios
+     - Real-life environment is more noisy and with more distrations
+     - there is evidence that blind individuals can better extract speech information from noise more efficiently than sighted controls (Rokem and Ahissar, 2009)
