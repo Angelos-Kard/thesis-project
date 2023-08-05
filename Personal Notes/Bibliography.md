@@ -9,6 +9,7 @@
 - [ ] MRTK: https://learn.microsoft.com/en-us/windows/mixed-reality/mrtk-unity/mrtk2/?view=mrtkunity-2022-05
 - [ ] Microsoft's presentation on Hololens 2: https://www.youtube.com/watch?v=P8og3nC5FaQ
 - [ ] Intro to Hololens tutorial: https://www.youtube.com/watch?v=dHLDOfdQyvI
+- [x] Building AR Apps for HoloLens 2: https://www.youtube.com/watch?v=BymWq0vzBhM
 
 #### Spatial Audio
 - [ ] [https://github.com/microsoft/spatialaudio-unity](https://github.com/microsoft/spatialaudio-unity)
