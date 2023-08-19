@@ -5,11 +5,26 @@
 - [x] How to build the project: https://www.youtube.com/watch?v=jNyF4Whh_Uw
   - Helpful for importing tools to the project
 - [x] Hololens 2 Training (5hr 26min): https://learn.microsoft.com/en-us/training/paths/beginner-hololens-2-tutorials/
-- [ ] Unity Development Documentation: https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/unity-development-overview?tabs=arr%2CD365%2Chl2
+- [x] Unity Development Documentation: https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/unity-development-overview?tabs=arr%2CD365%2Chl2
 - [ ] MRTK: https://learn.microsoft.com/en-us/windows/mixed-reality/mrtk-unity/mrtk2/?view=mrtkunity-2022-05
 - [ ] Microsoft's presentation on Hololens 2: https://www.youtube.com/watch?v=P8og3nC5FaQ
 - [ ] Intro to Hololens tutorial: https://www.youtube.com/watch?v=dHLDOfdQyvI
 - [x] Building AR Apps for HoloLens 2: https://www.youtube.com/watch?v=BymWq0vzBhM
+- [x] Using Visual Studio to deploy and debug: https://learn.microsoft.com/en-us/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2
+- [x] Using the HoloLens Emulator: https://learn.microsoft.com/en-us/windows/mixed-reality/develop/advanced-concepts/using-the-hololens-emulator
+- [ ] What is Mixed Reality Toolkit 2?: https://learn.microsoft.com/en-us/windows/mixed-reality/mrtk-unity/mrtk2/?view=mrtkunity-2022-05
+
+#### Spatial Awarness
+- [ ] Made with MRTK: Spatial Awareness: https://www.youtube.com/watch?app=desktop&v=5_u-k-WsXyM&t=0s
+- [x] Set up a new OpenXR project with MRTK: https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/new-openxr-project-with-mrtk
+- [x] Spatial Mapping: https://learn.microsoft.com/en-us/windows/mixed-reality/design/spatial-mapping
+- [ ] Unity Mixed Reality Tutorials MRTK (Spatial Awareness): https://www.youtube.com/watch?v=FnRQS1YC0Gs
+- [ ] Configuring mesh observers for device — MRTK2: https://learn.microsoft.com/en-us/windows/mixed-reality/mrtk-unity/mrtk2/features/spatial-awareness/configuring-spatial-awareness-mesh-observer?view=mrtkunity-2021-05
+- [ ] Spatial mapping in Unity: https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/spatial-mapping-in-unity?tabs=mrtk
+- [x] Spatial object mesh observer — MRTK2: https://learn.microsoft.com/en-us/windows/mixed-reality/mrtk-unity/mrtk2/features/spatial-awareness/spatial-object-mesh-observer?view=mrtkunity-2022-05
+
+#### Voice Commands
+- [ ] Enable eye-tracking and voice commands for objects on the HoloLens 2: https://learn.microsoft.com/en-us/training/modules/use-eye-tracking-voice-commands/6-5-exercise-voice-commands
 
 #### Spatial Audio
 - [ ] [https://github.com/microsoft/spatialaudio-unity](https://github.com/microsoft/spatialaudio-unity)
@@ -26,6 +41,8 @@
 ### Issues solved
 - Audio not playing when spatialize chekcbox is checked
   - [Solution](https://github.com/microsoft/MixedRealityToolkit-Unity/discussions/11334): Add Microsoft Spatialize Mixer as Effect in the Audio Mixer
+- Spatial Mapping: Mesh not appearing in hololens emulator
+  - [Solution](https://github.com/microsoft/MixedRealityToolkit-Unity/issues/10417)
 
 ---
 
