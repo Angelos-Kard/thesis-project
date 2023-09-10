@@ -2,7 +2,7 @@
 ## Bibliography
 
 ### General
-- [x] Video Tutorial for the creation of the project: https://www.youtube.com/watch?v=dOsYerpKloY
+- [x] Video tutorial for the creation of a project: https://www.youtube.com/watch?v=dOsYerpKloY
 - [x] Mixed Reality Feature Tool: https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool
 - [x] Set up a new OpenXR project with MRTK: https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/new-openxr-project-with-mrtk
 - [x] How to build the project: https://www.youtube.com/watch?v=jNyF4Whh_Uw
@@ -28,14 +28,16 @@
 - [ ] Unity Mixed Reality Tutorials MRTK (Spatial Awareness): https://www.youtube.com/watch?v=FnRQS1YC0Gs
 
 ### Raycast
-- [x] Unity Docs: Physics.Raycast: https://docs.unity3d.com/ScriptReference/Physics.Raycast.html
+- [x] Unity Docs: **Physics.Raycast**: https://docs.unity3d.com/ScriptReference/Physics.Raycast.html
+- [x] Unity Docs: **RaycastHit**: https://docs.unity3d.com/ScriptReference/RaycastHit.html
 
 ### Voice Commands
 - [x] Hololens Tutorials: **Enable eye-tracking and voice commands for objects on the HoloLens 2**: https://learn.microsoft.com/en-us/training/modules/use-eye-tracking-voice-commands/6-5-exercise-voice-commands
 
 ### Spatial Audio
 - [ ] [https://github.com/microsoft/spatialaudio-unity](https://github.com/microsoft/spatialaudio-unity)
-- [ ] Hololens Docs: **Spatial Sound Best Practices**: (https://learn.microsoft.com/en-us/windows/mixed-reality/design/spatial-sound-design)
+- [ ] Hololens Docs: **Spatial Sound Best Practices**: https://learn.microsoft.com/en-us/windows/mixed-reality/design/spatial-sound-design
+- [ ] Course: **Activate spatial audio for your HoloLens 2 application**: https://learn.microsoft.com/en-us/training/modules/spatial-audio-tutorials-mrtk/
 
 ## Software Used
 - [x] Unity
