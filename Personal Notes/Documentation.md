@@ -65,5 +65,22 @@ Solvers calculate an object's position and orientation by using predefined algor
   - Microsoft Spatial Sound only supports sampling rates of 48 kHz currently
     - You should also set your System Sample Rate to 48000 to prevent an HRTF failure in the rare case that your system output device isn't set to 48000 already
 
+# Spatial Awareness
+- FOI (Field of Interest of depth sensors for spatial mapping) is larger than the FOV
+- Room Data (SR Mesh)
+- Scene understanding
+- Spatial Observers
+- Best practises:
+  - Make scanning of the room part of your app in a fun way
+  - Check boundaries of the room
+  - Show mesh only if it's necessary
+- Camera used for spatial mapping can only see 3.1m in front of the user
+- Raycasting is affected by holes in the mesh and hallucination (mesh of objects that aren't there)
+- Set up scanning experiences:
+  - Scanning may not be needed: the app needs only what is in front of the user
+  - Spatial coordinate system
+  - Scan part of or the whole room
+  - Take an initial snapshot of the environment (if no checks for changes in the environment are needed)
+
 # Build & Deploy Application
 - File &rarr; Build Settings &rarr; "Add Open Scenes" &rarr; "Build" &rarr; Select Folder
