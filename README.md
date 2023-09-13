@@ -20,6 +20,11 @@ The technology (devices, software), which was used during the development of the
   - We decided to use an AR device in order to take advantage of its compact design along with the hardware and software which has already been implemented for it, making the development process easier.
 - Unity
   - It was decided to proced with Unity instead of Javascript due to the vast range of documentation, tutorials and examples
+- Mixed Reality Feature Tool
+  - Mixed Reality Toolikit Foundations (version 2.7.3)
+  - Mixed Reality Toolkit Standard Assets (version 2.7.3)
+  - Mixed Reality OpenXR Plugin (version 1.4.0)
+- Hololens Emulator
 
 ## 2.1. Hololens > Spatial Mapping
 ...
@@ -48,5 +53,5 @@ The technology (devices, software), which was used during the development of the
   - If a ray hits an object, then an alert sound will start to be played, originating from the direction of the hit point ([alert box](TODO: Add link))
 
 
-[^1]: Mentioned earlier
+[^1]: Mentioned earlier - TODO: add links
 [^2]: With the phrase "a ray hits an object", we mean that the ray hits the mesh of an real life object, which was retrieved through the spatial mapping
