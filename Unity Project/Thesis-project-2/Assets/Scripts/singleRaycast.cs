@@ -13,7 +13,7 @@ public class singleRaycast : MonoBehaviour
 
         RaycastHit hitInfo;
 
-        if (Physics.Raycast(transform.position, fwd, out hitInfo, 10.0f))
+        if (Physics.Raycast(transform.position, fwd, out hitInfo, 5.0f))
         {
             //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hitInfo.distance, Color.yellow);
             print(this.name + ": Found an object - distance: " + hitInfo.distance);
