@@ -35,14 +35,25 @@
 - [x] Hololens Tutorials: **Enable eye-tracking and voice commands for objects on the HoloLens 2**: https://learn.microsoft.com/en-us/training/modules/use-eye-tracking-voice-commands/6-5-exercise-voice-commands
 
 ### Spatial Audio
-- [ ] [https://github.com/microsoft/spatialaudio-unity](https://github.com/microsoft/spatialaudio-unity)
+- [ ] Github: [https://github.com/microsoft/spatialaudio-unity](https://github.com/microsoft/spatialaudio-unity)
 - [ ] Hololens Docs: **Spatial Sound Best Practices**: https://learn.microsoft.com/en-us/windows/mixed-reality/design/spatial-sound-design
 - [ ] Course: **Activate spatial audio for your HoloLens 2 application**: https://learn.microsoft.com/en-us/training/modules/spatial-audio-tutorials-mrtk/
+- [ ] Unity Docs: **AudioSource**: https://docs.unity3d.com/ScriptReference/AudioSource.html
+
+## Pointers
+- [x] Hololens Docs: **Pointers — MRTK2** https://learn.microsoft.com/en-us/windows/mixed-reality/mrtk-unity/mrtk2/features/input/pointers?view=mrtkunity-2022-05
+- [x] Hololens Docs: **IMixedRealityPointer Interface**: https://learn.microsoft.com/en-us/dotnet/api/microsoft.mixedreality.toolkit.input.imixedrealitypointer?view=mixed-reality-toolkit-unity-2020-dotnet-2.8.0
+- [x] Hololens Docs: **IMixedRealityController Interface**: https://learn.microsoft.com/en-us/dotnet/api/microsoft.mixedreality.toolkit.input.imixedrealitycontroller?view=mixed-reality-toolkit-unity-2020-dotnet-2.8.0
+- [ ] Hololens Docs: **ShellHandRayPointer Class**: https://learn.microsoft.com/en-us/dotnet/api/microsoft.mixedreality.toolkit.input.shellhandraypointer?view=mixed-reality-toolkit-unity-2020-dotnet-2.8.0
 
 ## Software Used
 - [x] Unity
 - [x] [Mixed Reality Feature Tool](https://www.microsoft.com/en-us/download/details.aspx?id=102778)
 - [x] [Hololens Emulator](https://learn.microsoft.com/en-us/windows/mixed-reality/develop/advanced-concepts/using-the-hololens-emulator)
+
+# Stock Material
+- Sound
+  - [x] https://mixkit.co
 
 ## Code Used
 - [x] [Thesis Template (Latex)](https://github.com/eparon/ece-upatras-thesis-template)
@@ -66,3 +77,6 @@
 - [ ] https://www.researchgate.net/publication/14146784_Representation_of_space_in_blind_persons_Vision_as_a_spatial_sense
 - [ ] https://ceur-ws.org/Vol-2753/paper24.pdf
 - [ ] https://scholar.google.gr/scholar?q=space+recognition+for+visually+impaired&hl=el&as_sdt=0&as_vis=1&oi=scholart
+
+## Other Solutions
+- https://www.linkedin.com/posts/unitreerobotics_robot-guide-dogs-activity-7033650939680948224-ImaT?utm_source=share&utm_medium=member_desktop
