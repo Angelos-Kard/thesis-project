@@ -21,6 +21,16 @@ public class singleRaycast : MonoBehaviour
     {
         continuousRaycast = !continuousRaycast;
     }
+
+    public void EnableStopMode()
+    {
+        continuousRaycast = false;
+        if (alertBox.activeSelf)
+        {
+            alertBox.SetActive(false);
+        }
+    }
+
     public void SingleRaycastFunc()
     {
         Vector3 fwd = transform.TransformDirection(Vector3.forward); // forward direction
