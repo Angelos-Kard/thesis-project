@@ -6,8 +6,7 @@ public class singleRaycast : MonoBehaviour
 {
     [Tooltip("The object which will operate as an alert box for the specific raycast.")]
     public GameObject alertBox;
-
-    public void singleRaycastFunc()
+    public void SingleRaycastFunc()
     {
         Vector3 fwd = transform.TransformDirection(Vector3.forward); // forward direction
 
