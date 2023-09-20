@@ -20,6 +20,14 @@ public class singleRaycast : MonoBehaviour
     public void ContinuousModeToggle()
     {
         continuousRaycast = !continuousRaycast;
+        
+        if(continuousRaycast == false)
+        {
+            if (alertBox.activeSelf == true)
+            {
+                alertBox.SetActive(false);
+            }     
+        }
     }
 
     public void EnableStopMode()
