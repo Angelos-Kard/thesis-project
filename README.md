@@ -1,15 +1,5 @@
 # Thesis Project
 
-<style>
-  img {
-    width: 25%;
-  }
-
-  .cc-img-margin {
-    margin: 15px 0;
-  }
-</style>
-
 - [Thesis Project](#thesis-project)
 - [1. Introduction](#1-introduction)
 - [2. Technology](#2-technology)
@@ -59,10 +49,10 @@ The technology (devices, software), which was used during the development of the
 ## 4.1. Voice Commands
 |Voice Command | Description |
 | ------------ | ----------- |
-| `Scan` | 9 rays are casted from multiple positions ([Raycasts Origin Point](#6-appendix)), as they are displayed in the image:<div class="cc-img-margin" align="center"><img src="./Assets/raycast-origin-points.png"></div>The first row is placed at the height of user's gaze. The distance between each Origin Point with its adjacent ones is 0.5 units[^1].<br/>When a ray hits the mesh[^2] of the room, then an [alert box](#6-appendix) is placed at the hit point in order to alert the user for an obstacle. One alert box correspond to each raycast. If the ray doesn't hit the mesh within 5 units[^1], then its alert box is deactivated.<br>If the user uses the command again, the alert boxes are moved to the new hit points.<br><br>**<u>Note</u>**: If the user turns his gaze, the alert boxes stay in their positions. For the alert boxes to follow the movement of the user's head, use the command `Continuous Mode`. |
+| `Scan` | 9 rays are casted from multiple positions ([Raycasts Origin Point](#6-appendix)), as they are displayed in the image:<div margin="10px 0" align="center"><img width="25%" src="./Assets/raycast-origin-points.png"></div>The first row is placed at the height of user's gaze. The distance between each Origin Point with its adjacent ones is 0.5 units[^1].<br/>When a ray hits the mesh[^2] of the room, then an [alert box](#6-appendix) is placed at the hit point in order to alert the user for an obstacle. One alert box correspond to each raycast. If the ray doesn't hit the mesh within 5 units[^1], then its alert box is deactivated.<br>If the user uses the command again, the alert boxes are moved to the new hit points.<br><br>**<u>Note</u>**: If the user turns his gaze, the alert boxes stay in their positions. For the alert boxes to follow the movement of the user's head, use the command `Continuous Mode`. |
 | `Stop` | All alert boxes are deactivated. |
 | `Continuous Mode` | When this mode is activated, then the rays (which have been selected to be activated for this mode) are casted in each frame. The alert boxes are placed on the hit points. Since the rays are casted in each update, this means that the alert boxes follow the movement of user's head.<br>Using the same command, the mode is deactivated.<br><br>**<u>Note</u>**: For now, only one ray is casted in this mode at the height of user's gaze. |
-| `Hands Mode` | When this mode is activated, then, if the user place his hand in front of him, at the end of the pointer, which extends from his arm and works as a raycast, an alert box is placed in the hit point between the pointer and the mesh[^2].<div class="cc-img-margin" align="center"><img src="./Assets/hand-alert-box.png"></div>If no point of the mesh is hit by the pointer, the alert box is deactivated. If the user uses the same command, the mode is deactivated.<br><br>**<u>Note</u>**: If the user does the pinch gesture, the sound of the alert box is temporarily muted. If the user "release" the gesture, the sound is unmuted. <div class="cc-img-margin" align="center"><img src="./Assets/hand-alert-box-pinch.png"></div> |
+| `Hands Mode` | When this mode is activated, then, if the user place his hand in front of him, at the end of the pointer, which extends from his arm and works as a raycast, an alert box is placed in the hit point between the pointer and the mesh[^2].<div margin="10px 0" align="center"><img width="25%" src="./Assets/hand-alert-box.png"></div>If no point of the mesh is hit by the pointer, the alert box is deactivated. If the user uses the same command, the mode is deactivated.<br><br>**<u>Note</u>**: If the user does the pinch gesture, the sound of the alert box is temporarily muted. If the user "release" the gesture, the sound is unmuted. <div margin="10px 0" align="center"><img width="25%" src="./Assets/hand-alert-box-pinch.png"></div> |
 
 
 [^1]: Unity doesn't have a specific unit of measurement for distances, so the generic term **units** is used. We can accept that: $1 unit \approx 1 meter$.
@@ -76,6 +66,11 @@ The technology (devices, software), which was used during the development of the
 
 # 6. Appendix
 - <a name="appendix-alert-box">**Alert Box**</a>: A GameObject, to which has been attached an Audio Source that plays a sound in order to alert the user. In the app, they are visualized as a blue or green cube.\
-![9 alert boxes](./Assets/alert-boxes.png)
+<div margin="10px 0" align="center">
+  <img width="25%" src="./Assets/alert-boxes.png" />
+</div>
+
 - <a name="appendix-origin-point">**(Raycast) Origin Point**</a>: It is the point (coordinates) from which a ray is casted. In the app, it is visualized as a white box.\
-![9 Raycast Origin Points](./Assets/raycast-origin-points.png)
+<div margin="10px 0" align="center">
+  <img width="25%" src="./Assets/raycast-origin-points.png" />
+</div>
