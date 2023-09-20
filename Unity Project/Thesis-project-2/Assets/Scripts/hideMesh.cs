@@ -6,6 +6,16 @@ using UnityEngine;
 
 public class hideMesh : MonoBehaviour
 {
+    public bool hideMeshAtStart = false;
+
+    private void Start()
+    {
+       if (hideMeshAtStart == true)
+        {
+            hideMeshFunc();
+        }
+    }
+
     // Start is called before the first frame update
     public void hideMeshFunc()
     {
