@@ -23,7 +23,7 @@ The scope of this thesis project is to develop an app for Hololens 2, which will
 
 # 1.1. Current Solutions and State of the Art
 - Cane
-  - Help the user to navigate (alongside with the tactile paving) and locate obstacles in its route
+  - Help the user to navigate (alongside the tactile paving) and locate obstacles in its route
 - Service Dogs
   - Pick items up for their owners
   - Guide their owners
