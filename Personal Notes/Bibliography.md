@@ -78,5 +78,19 @@
 - [ ] https://ceur-ws.org/Vol-2753/paper24.pdf
 - [ ] https://scholar.google.gr/scholar?q=space+recognition+for+visually+impaired&hl=el&as_sdt=0&as_vis=1&oi=scholart
 
-## Other Solutions
-- https://www.linkedin.com/posts/unitreerobotics_robot-guide-dogs-activity-7033650939680948224-ImaT?utm_source=share&utm_medium=member_desktop
+## Other Solutions - State of the art
+- Unitree Go1
+  - https://shop.unitree.com/products/unitreeyushutechnologydog-artificial-intelligence-companion-bionic-companion-intelligent-robot-go1-quadruped-robot-dog
+  - https://www.linkedin.com/posts/unitreerobotics_robot-guide-dogs-activity-7033650939680948224-ImaT?utm_source=share&utm_medium=member_desktop
+- Biped:
+  - https://www.biped.ai
+  - https://www.dezeen.com/2022/01/14/biped-smart-harness-visually-impaired-obstacles-ces-2022/
+- Guidesense:
+  - http://www.guidesense.com/en/
+- Wayband:
+  - https://www.wear.works/wayband
+  - https://www.majestykapps.com/work/wearworks
+  - https://www.amazon.com/WAYBAND-Navigation-Accessibility-International-Skateboard/dp/B0BKK2XK42
+- NextGuide
+  - https://next-guide.com
+  - https://www.swiss.tech/news/intelligent-guide-blind-people
