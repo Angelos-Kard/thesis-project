@@ -3,14 +3,20 @@ using Microsoft.MixedReality.Toolkit.Input;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(initCastAndBoxesHandler))]
 public class handRaycast : MonoBehaviour
 {
-    public GameObject[] handAlertBoxes;
-    public bool enabledHandAB = true;
+    private variablesAggregator variableAggInstance;
+    private GameObject[] handAlertBoxes;
+    private bool enabledHandAB;
     private Dictionary<string, GameObject> handAlertBoxesDict = new Dictionary<string, GameObject>();
 
     public void Start()
     {
+        variableAggInstance = this.GetComponent<initCastAndBoxesHandler>().variableAggregatorObject.GetComponent<variablesAggregator>();
+        handAlertBoxes = variableAggInstance.handAlertBoxes;
+        enabledHandAB = variableAggInstance.enabledHandAB;
+
         foreach (var handAlertBox in handAlertBoxes)
         {
             if (!handAlertBox.CompareTag("Untagged"))
@@ -23,7 +29,7 @@ public class handRaycast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        enabledHandAB = variableAggInstance.enabledHandAB;
         if (enabledHandAB == true)
         {
             var isHandPresent = false;
