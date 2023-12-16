@@ -53,7 +53,7 @@ public class handRaycast : MonoBehaviour
                             var endPoint = p.Result.Details.Point;
                             var rayDist = p.Result.Details.RayDistance;
                             //var hitObject = p.Result.Details.Object;
-                            if (rayDist <= 5.0f)
+                            if (rayDist <= variableAggInstance.maxDistance)
                             {
                                 if (handAlertBoxesDict.ContainsKey(source.SourceName)) {
                                     handAlertBoxesDict[source.SourceName].SetActive(true);
