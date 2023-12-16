@@ -19,10 +19,14 @@ public class stopCast : MonoBehaviour
         }
 
         GameObject[] allCastBoxes = variableAggInstance.raycastBoxes;
-        for (int i = 0; i < allCastBoxes.Length; i++)
-        if (allCastBoxes[i].GetComponent<initSingleBox>().alertBox.activeSelf)
+        this.GetComponent<initBoxes>().deactivateAlertBox(allCastBoxes);
+        this.GetComponent<initBoxes>().deactivateAlertBox(variableAggInstance.commonAlertBox);
+        /*for (int i = 0; i < allCastBoxes.Length; i++)
         {
-            allCastBoxes[i].GetComponent<initSingleBox>().alertBox.SetActive(false);
-        }
+            if (allCastBoxes[i].GetComponent<initSingleBox>().alertBox.activeSelf)
+            {
+                allCastBoxes[i].GetComponent<initSingleBox>().alertBox.SetActive(false);
+            }
+        }*/
     }
 }
