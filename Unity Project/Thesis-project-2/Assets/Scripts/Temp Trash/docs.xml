@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" ?>
+<extradoc>
+	<class name="positionAndScaleBoxes">
+		<summary>
+			Test testoooo
+		</summary>
+		<param name="raycstBoxesToPosition"></param>
+		<param name="boxesPerRow"></param>
+		<param name="numberOfRows"></param>
+		<param name="userHeight"></param>
+	</class>
+</extradoc>
