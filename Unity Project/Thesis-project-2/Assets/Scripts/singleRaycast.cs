@@ -5,19 +5,26 @@ using UnityEngine;
 [RequireComponent(typeof(initSingleBox))]
 public class singleRaycast : MonoBehaviour
 {
-    public GameObject variableAggregatorObject;
+    // public GameObject variableAggregatorObject;
     /*public GameObject handlerObject;*/
-    private variablesAggregator variableAggInstance;
+    // private variablesAggregator variableAggInstance;
 
     private bool m_HitDetect;
     private RaycastHit hitInfo;
 
     public void Start()
     {
-        variableAggInstance = variableAggregatorObject.GetComponent<variablesAggregator>();
+        // variableAggInstance = variableAggregatorObject.GetComponent<variablesAggregator>();
     }
 
-    public void SingleRaycastFunc()
+    /// <summary>
+    ///     Castes a raycast or boxcast from the position of a castBox and detects a hitPoint.
+    /// </summary>
+    /// <param name="variableAggInstance">The variable aggregator GameObjetc</param>
+    /// <returns>
+    ///     The hitPoint of the cast
+    /// </returns>
+    public RaycastHit SingleRaycastFunc(variablesAggregator variableAggInstance)
     {
         Vector3 fwd = transform.TransformDirection(Vector3.forward); // forward direction
 
@@ -35,28 +42,13 @@ public class singleRaycast : MonoBehaviour
                 break;
         }
 
-
-        if (m_HitDetect)
-        {
-            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hitInfo.distance, Color.yellow);
-            print(this.name + ": Found an object - distance: " + hitInfo.distance);
-            this.GetComponent<initSingleBox>().alertBox.SetActive(true);
-            this.GetComponent<initSingleBox>().alertBox.transform.position = hitInfo.point;
-            this.GetComponent<initSingleBox>().alertBox.transform.rotation = this.transform.rotation;
-        }
-        else
-        {
-            this.GetComponent<initSingleBox>().alertBox.SetActive(false);
-            print(this.name + ": No object was hit");
-        }
+        return hitInfo;        
     }
 
-    /*
+    //*
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-
-        float m_MaxDistance = handlerObject.GetComponent<positionRaycasts>().maxDistance;
 
         //Check if there has been a hit yet
         if (m_HitDetect)
@@ -70,9 +62,9 @@ public class singleRaycast : MonoBehaviour
         else
         {
             //Draw a Ray forward from GameObject toward the maximum distance
-            Gizmos.DrawRay(transform.position, transform.forward * m_MaxDistance);
+            // Gizmos.DrawRay(transform.position, transform.forward * m_MaxDistance);
             //Draw a cube at the maximum distance
-            Gizmos.DrawWireCube(transform.position + transform.forward * m_MaxDistance, transform.localScale);
+            // Gizmos.DrawWireCube(transform.position + transform.forward * m_MaxDistance, transform.localScale);
         }
     }
     //*/
