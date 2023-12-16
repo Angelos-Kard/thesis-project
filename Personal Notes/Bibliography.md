@@ -46,6 +46,10 @@
 - [x] Hololens Docs: **IMixedRealityController Interface**: https://learn.microsoft.com/en-us/dotnet/api/microsoft.mixedreality.toolkit.input.imixedrealitycontroller?view=mixed-reality-toolkit-unity-2020-dotnet-2.8.0
 - [ ] Hololens Docs: **ShellHandRayPointer Class**: https://learn.microsoft.com/en-us/dotnet/api/microsoft.mixedreality.toolkit.input.shellhandraypointer?view=mixed-reality-toolkit-unity-2020-dotnet-2.8.0
 
+## Gamepad rumble
+- [x] Unity Docs: **InputSystem.Gamepad** https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/api/UnityEngine.InputSystem.Gamepad.html#methods
+- [x] Tutorial: https://www.youtube.com/watch?v=WSw82nKXibc&ab_channel=BrokenKnightsGames
+
 ## Software Used
 - [x] Unity
 - [x] [Mixed Reality Feature Tool](https://www.microsoft.com/en-us/download/details.aspx?id=102778)
@@ -65,7 +69,10 @@
   - [Solution](https://github.com/microsoft/MixedRealityToolkit-Unity/issues/10417)
 - Intellisense not working in Visual Studio
   - [Solution](https://forum.unity.com/threads/intellisense-not-working-with-visual-studio-fix.836599/)
-
+- Hot to create flashing lights
+  - [Solution](https://www.youtube.com/watch?v=Yw3EoV5I_PE&t=247s&ab_channel=ACDev)
+- Detect position of an object relatively to an other object
+  - [Solution](https://stackoverflow.com/questions/56284543/how-to-detect-if-the-game-object-is-left-or-right-from-the-player)
 ---
 
 ## Blindness
