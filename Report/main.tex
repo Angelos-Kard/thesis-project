@@ -2,9 +2,70 @@
 %!TEX encoding = UTF-8 Unicode
 
 \documentclass[a4paper,11pt,twoside]{book}
+% \documentclass[hidelinks,a4paper,11pt,twoside]{book}
 \usepackage{upatras-thesis}
 \usepackage{bm}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{color}
+\lstloadlanguages{C,C++,csh,Java}
 
+\definecolor{red}{rgb}{0.6,0,0} 
+\definecolor{blue}{rgb}{0,0,0.6}
+\definecolor{green}{rgb}{0,0.8,0}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{cloudwhite}{rgb}{1.0, 1.0, 1.0}
+
+\lstdefinestyle{sharpc}{
+language={[Sharp]C},
+basicstyle=\footnotesize\ttfamily,
+numbers=left,
+numberstyle=\tiny,
+numbersep=5pt,
+tabsize=2,
+extendedchars=true,
+breaklines=true,
+frame=b,
+stringstyle=\color{blue}\ttfamily,
+showspaces=false,
+showtabs=false,
+xleftmargin=17pt,
+framexleftmargin=17pt,
+framexrightmargin=5pt,
+framexbottommargin=4pt,
+commentstyle=\color{green},
+morecomment=[l]{//}, %use comment-line-style!
+morecomment=[s]{/*}{*/}, %for multiline comments
+showstringspaces=false,
+morekeywords={ abstract, event, new, struct,
+as, explicit, null, switch,
+base, extern, object, this,
+bool, false, operator, throw,
+break, finally, out, true,
+byte, fixed, override, try,
+case, float, params, typeof,
+catch, for, private, uint,
+char, foreach, protected, ulong,
+checked, goto, public, unchecked,
+class, if, readonly, unsafe,
+const, implicit, ref, ushort,
+continue, in, return, using,
+decimal, int, sbyte, virtual,
+default, interface, sealed, volatile,
+delegate, internal, short, void,
+do, is, sizeof, while,
+double, lock, stackalloc,
+else, long, static,
+enum, namespace, string},
+keywordstyle=\color{cyan},
+identifierstyle=\color{red},
+backgroundcolor=\color{cloudwhite},
+}
+
+% \usepackage{caption}
+% \DeclareCaptionFont{black}{\color{black}}
+% \DeclareCaptionFormat{listing}{{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+% \captionsetup[lstlisting]{format=plain, labelfont=black,textfont=black, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
 
 \newcommand{\shortdoctitle}{Διπλωματική Εργασία}
 \newcommand{\doctitle}{Ανάπτυξη συστήματος μεικτής πραγματικότητας για υποστήριξη ατόμων με προβλήματα όρασης}
@@ -17,7 +78,7 @@
 
 \newcommand{\studnum}{1059372}
 \newcommand{\keywordsEnglish}{Augmented Reality, Virtual Reality, Mixed Reality, Hololens 2, Microsoft Visual Studio, Unity, spatial mapping, spatial audio, visual impairment, accessibility}
-\newcommand{\keywords}{Εκτεταμένη Πραγματικότητα, Επαυξημένη Πραγματικότητα, Μικτή Πραγματικότητα, Hololens 2, Microsoft Visual Studio, unity, χωρική χαρτογράφηση, χωρικός ήχος, πρόβλημα όρασης, προσβασιμότητα}
+\newcommand{\keywords}{Εκτεταμένη Πραγματικότητα, Επαυξημένη Πραγματικότητα, Μικτή Πραγματικότητα, Hololens 2, Microsoft Visual Studio, Unity, χωρική χαρτογράφηση, χωρικός ήχος, απώλεια όρασης, προσβασιμότητα}
 \newcommand{\arximonthyear}{Μάιος 2023}
 \newcommand{\telosmonthyear}{Φεβρουάριος 2024}
 % To modify
@@ -44,6 +105,7 @@
 
 \author{\me}
 
+\newcommand{\schema}{Σχήμα}
 
 
 % PDF settings
@@ -104,24 +166,23 @@
 \setcounter{page}{1}
 
 \mainmatter
-\chapter{Εισαγωγη}
+\chapter{Εισαγωγή}\label{ch:introduction}
 \include{chapters/introduction}
-
 \clearemptydoublepage
 
-\chapter{Θεωρητικο και Τεχνολογικο Υποβαθρο}
+\chapter{Θεωρητικό και Τεχνολογικό Υπόβαθρο}\label{ch:technicalAndTheoreticalBg}
 \include{chapters/chapter_2}
 \clearemptydoublepage
 
-\chapter{Η υλοποιηση}
+\chapter{Η υλοποίηση}\label{ch:implementation}
 \include{chapters/chapter_3}
 \clearemptydoublepage
 
-\chapter{Αξιολογηση}
+\chapter{Αξιολόγηση}\label{ch:experiment}
 \include{chapters/chapter_4}
 \clearemptydoublepage
 
-\chapter{Προεκτασεις και Επιλογος}
+\chapter{Προεκτάσεις και Επίλογος}\label{ch:epilogue}
 \include{chapters/chapter_5}
 \clearemptydoublepage
 
@@ -131,11 +192,11 @@
 % \include{bibliography}
 \clearemptydoublepage
 
-\chapter{Παραρτημα Α'}
+\chapter{Παράρτημα Α'}
 \include{chapters/appendixA}
 \clearemptydoublepage
 
-\chapter{Παραρτημα Β'}
+\chapter{Παράρτημα Β'}
 \include{chapters/appendixB}
 \clearemptydoublepage
 
