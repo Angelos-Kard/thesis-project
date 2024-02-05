@@ -64,6 +64,12 @@ identifierstyle=\color{red},
 backgroundcolor=\color{cloudwhite},
 }
 
+\lstdefinestyle{ccin}{
+    language={[Sharp]C},
+    basicstyle=\ttfamily,
+    identifierstyle=\color{cyan}
+}
+
 % \usepackage{caption}
 % \DeclareCaptionFont{black}{\color{black}}
 % \DeclareCaptionFormat{listing}{{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
@@ -108,6 +114,8 @@ backgroundcolor=\color{cloudwhite},
 \author{\me}
 
 \newcommand{\schema}{Σχήμα}
+
+\newcommand{\code}[1]{\lstinline[style=ccin]{#1}}
 
 
 % PDF settings
