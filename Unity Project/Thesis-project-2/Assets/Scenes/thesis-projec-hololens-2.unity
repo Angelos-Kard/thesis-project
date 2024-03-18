@@ -1288,7 +1288,7 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1400779381}
           m_TargetAssemblyTypeName: continuousCast, Assembly-CSharp
           m_MethodName: continuousModeGlobalToggle
           m_Mode: 1
@@ -1304,7 +1304,7 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1400779378}
           m_TargetAssemblyTypeName: stopCast, Assembly-CSharp
           m_MethodName: EnableStopMode
           m_Mode: 1
@@ -1320,7 +1320,7 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1400779380}
           m_TargetAssemblyTypeName: handRaycast, Assembly-CSharp
           m_MethodName: enabledHandABToggle
           m_Mode: 1
