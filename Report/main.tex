@@ -11,6 +11,7 @@
 \usepackage{listings}
 \usepackage{textcomp}
 \usepackage{color}
+\usepackage{dirtree}
 \lstloadlanguages{C,C++,csh,Java}
 
 \definecolor{red}{rgb}{0.6,0,0} 
@@ -59,7 +60,53 @@ delegate, internal, short, void,
 do, is, sizeof, while,
 double, lock, stackalloc,
 else, long, static,
-enum, namespace, string},
+enum, namespace, string, Vector3},
+keywordstyle=\color{cyan},
+identifierstyle=\color{red},
+backgroundcolor=\color{cloudwhite},
+}
+
+\lstdefinestyle{sharpframe}{
+language={[Sharp]C},
+basicstyle=\footnotesize\ttfamily,
+numbers=left,
+numberstyle=\tiny,
+numbersep=5pt,
+tabsize=2,
+extendedchars=true,
+breaklines=true,
+frame=tlrb,
+stringstyle=\color{blue}\ttfamily,
+showspaces=false,
+showtabs=false,
+xleftmargin=17pt,
+framexleftmargin=17pt,
+framexrightmargin=5pt,
+framexbottommargin=4pt,
+commentstyle=\color{green},
+morecomment=[l]{//}, %use comment-line-style!
+morecomment=[s]{/*}{*/}, %for multiline comments
+showstringspaces=false,
+morekeywords={ abstract, event, new, struct,
+as, explicit, null, switch,
+base, extern, object, this,
+bool, false, operator, throw,
+break, finally, out, true,
+byte, fixed, override, try,
+case, float, params, typeof,
+catch, for, private, uint,
+char, foreach, protected, ulong,
+checked, goto, public, unchecked,
+class, if, readonly, unsafe,
+const, implicit, ref, ushort,
+continue, in, return, using,
+decimal, int, sbyte, virtual,
+default, interface, sealed, volatile,
+delegate, internal, short, void,
+do, is, sizeof, while,
+double, lock, stackalloc,
+else, long, static,
+enum, namespace, string, Vector3},
 keywordstyle=\color{cyan},
 identifierstyle=\color{red},
 backgroundcolor=\color{cloudwhite},
@@ -71,6 +118,7 @@ backgroundcolor=\color{cloudwhite},
     identifierstyle=\color{cyan}
 }
 
+\renewcommand{\lstlistingname}{Κώδικας}
 % \usepackage{caption}
 % \DeclareCaptionFont{black}{\color{black}}
 % \DeclareCaptionFormat{listing}{{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
@@ -169,6 +217,8 @@ backgroundcolor=\color{cloudwhite},
 \clearemptydoublepage
 \listoftables
 \clearemptydoublepage
+% \lstlistoflistings
+% \clearemptydoublepage
 
 % \mainmatter % book mode only
 
@@ -202,11 +252,11 @@ backgroundcolor=\color{cloudwhite},
 % \include{bibliography}
 \clearemptydoublepage
 
-\chapter{Παράρτημα Α'}
+\chapter{Παράρτημα Α'}\label{ch:appendixA}
 \include{chapters/appendixA}
 \clearemptydoublepage
 
-\chapter{Παράρτημα Β'}
+\chapter{Παράρτημα Β'}\label{ch:appendixB}
 \include{chapters/appendixB}
 \clearemptydoublepage
 
