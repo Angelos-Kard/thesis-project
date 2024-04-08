@@ -10,6 +10,13 @@ Contains commants about the basic parameters of the file
 
 ---
 
+# Latex Workshop: Shortcuts
+
+- `Ctrl + LMB` (in PDF): Go to .tex file
+- `Ctrl + Alt + j` (in .tex file): Go to page in PDF file
+
+---
+
 # Document Environment
 
 - `\begin{docuemnt}`: Begin of document

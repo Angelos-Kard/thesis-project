@@ -18,7 +18,7 @@ public class singleRaycast : MonoBehaviour
     }
 
     /// <summary>
-    ///     Castes a raycast or boxcast from the position of a castBox and detects a hitPoint.
+    ///     Casts a raycast or boxcast from the position of a castBox and detects a hitPoint.
     /// </summary>
     /// <param name="variableAggInstance">The variable aggregator GameObjetc</param>
     /// <returns>
@@ -45,7 +45,7 @@ public class singleRaycast : MonoBehaviour
         return hitInfo;        
     }
 
-    //*
+    /*
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

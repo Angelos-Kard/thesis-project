@@ -6,12 +6,12 @@
 \usepackage{mathrsfs}
 \usepackage{graphicx}
 \usepackage{caption}
-\usepackage{subfig}
+% \usepackage{subfig}
 \usepackage{algorithm2e}
 \usepackage{ulem}
 \usepackage{parskip}
 \usepackage{float}
-\usepackage{fixltx2e}
+% \usepackage{fixltx2e}
 \usepackage{xltxtra}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -22,7 +22,11 @@
 \usepackage{lettrine}
 \usepackage[nottoc]{tocbibind}
 
-\setmainfont[Path=font/, Mapping=tex-text]{GFSDidot.otf}
+\setmainfont[Path=font/,
+Mapping=tex-text,
+BoldFont={GFSDidotBold.otf},
+ItalicFont={GFSDidotItalic.otf},
+BoldItalicFont={GFSDidotBoldItalic.otf}]{GFSDidot.otf}
 \setlength{\headheight}{15.2pt}
 \newlength\longest
 
