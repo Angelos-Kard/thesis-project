@@ -14,6 +14,9 @@ public class scanCast : MonoBehaviour
 
     public void EnableScanMode()
     {
+
+        checkCurrentMode();
+        
         GameObject[] allCastBoxes = variableAggInstance.raycastBoxes;
         List<RaycastHit> castHitPointsList = new List<RaycastHit>();
 
@@ -27,7 +30,20 @@ public class scanCast : MonoBehaviour
         int hitPointIndex = this.GetComponent<initBoxes>().findClosestHitPointIndex(castHitPointsList.ToArray());
         if (hitPointIndex != -1)
         {
-            this.GetComponent<initBoxes>().placeAlertBox(variableAggInstance.commonAlertBox, allCastBoxes[hitPointIndex], castHitPointsList[hitPointIndex], variableAggInstance.placeAlertBoxAtEyeLevel);
+            switch (variableAggInstance.alertBoxType)
+            {
+                case variablesAggregator.AlertBoxTypeEnum.BoxSpecific:
+                    // Use the alert box of each castBox
+                    break;
+
+                case variablesAggregator.AlertBoxTypeEnum.Common:
+                    // Use a common alert for all castBoxes
+                    this.GetComponent<initBoxes>().placeAlertBox(variableAggInstance.commonAlertBox, allCastBoxes[hitPointIndex], castHitPointsList[hitPointIndex]);
+                    break;
+
+                case variablesAggregator.AlertBoxTypeEnum.Peripheral:
+                    break;
+            }
         }
         else
         {
@@ -35,7 +51,7 @@ public class scanCast : MonoBehaviour
             {
                 case variablesAggregator.AlertBoxTypeEnum.BoxSpecific:
                     // Use the alert box of each castBox
-                    this.GetComponent<initBoxes>().deactivateAlertBox(variableAggInstance.alertBoxes);
+                    this.GetComponent<initBoxes>().deactivateAlertBox(variableAggInstance.raycastBoxes);
                     break;
 
                 case variablesAggregator.AlertBoxTypeEnum.Common:
@@ -43,10 +59,21 @@ public class scanCast : MonoBehaviour
                     this.GetComponent<initBoxes>().deactivateAlertBox(variableAggInstance.commonAlertBox);
                     break;
 
-                case variablesAggregator.AlertBoxTypeEnum.Peripheral:
-                    this.GetComponent<initBoxes>().deactivateAlertBox(variableAggInstance.peripheralAlertBox);
-                    break;
+                //case variablesAggregator.AlertBoxTypeEnum.Peripheral:
+                //    this.GetComponent<initBoxes>().deactivateAlertBox(variableAggInstance.peripheralAlertBox);
+                //    break;
             }
+        }
+    }
+
+    public void checkCurrentMode()
+    {
+        variablesAggregator.CastModeEnum previousMode = variableAggInstance.enabledModeGlobal;
+
+        if (previousMode != variablesAggregator.CastModeEnum.ScanMode)
+        {
+            variableAggInstance.enabledModeGlobal = variablesAggregator.CastModeEnum.ScanMode;
+            this.GetComponent<initBoxes>().resetStatus();
         }
     }
 }

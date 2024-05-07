@@ -11,22 +11,21 @@ public class stopCast : MonoBehaviour
     {
         variableAggInstance = this.GetComponent<initCastAndBoxesHandler>().variableAggregatorObject.GetComponent<variablesAggregator>();
     }
+
+    /// <summary>
+    /// Toggle the stop mode. In stop mode, all alert boxes are disabled.
+    /// </summary>
+    /// <remarks>
+    ///     The function is called with the voice input <c>"Stop Mode"</c>
+    /// </remarks>
     public void EnableStopMode()
     {
-        if (variableAggInstance.enableContinuousModeGlobal == true)
-        {
-            this.GetComponent<continuousCast>().continuousModeGlobalToggle();
-        }
+        variablesAggregator.CastModeEnum previousMode = variableAggInstance.enabledModeGlobal;
 
-        GameObject[] allCastBoxes = variableAggInstance.raycastBoxes;
-        this.GetComponent<initBoxes>().deactivateAlertBox(allCastBoxes);
-        this.GetComponent<initBoxes>().deactivateAlertBox(variableAggInstance.commonAlertBox);
-        /*for (int i = 0; i < allCastBoxes.Length; i++)
+        if (previousMode != variablesAggregator.CastModeEnum.StopMode)
         {
-            if (allCastBoxes[i].GetComponent<initSingleBox>().alertBox.activeSelf)
-            {
-                allCastBoxes[i].GetComponent<initSingleBox>().alertBox.SetActive(false);
-            }
-        }*/
+            variableAggInstance.enabledModeGlobal = variablesAggregator.CastModeEnum.StopMode;
+            this.GetComponent<initBoxes>().resetStatus();
+        }
     }
 }

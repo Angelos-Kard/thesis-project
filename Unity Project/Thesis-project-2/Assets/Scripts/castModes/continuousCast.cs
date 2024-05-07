@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class continuousCast : MonoBehaviour
 {
     private variablesAggregator variableAggInstance;
-    private bool enableContinuousModeGlobal;
+    // private bool enableContinuousModeGlobal;
     private GameObject[] castBoxesWithContinuous;
     private initFlashHandler flashHandler;
 
@@ -16,7 +16,7 @@ public class continuousCast : MonoBehaviour
     void Start()
     {
         variableAggInstance = this.GetComponent<initCastAndBoxesHandler>().variableAggregatorObject.GetComponent<variablesAggregator>();
-        enableContinuousModeGlobal = variableAggInstance.enableContinuousModeGlobal;
+        // enableContinuousModeGlobal = variableAggInstance.enableContinuousModeGlobal;
         castBoxesWithContinuous = this.GetComponent<initBoxes>().findCastBoxesWithContinuousEnabled(variableAggInstance.raycastBoxes);
         flashHandler = this.GetComponent<initFlashHandler>();
     }
@@ -24,7 +24,7 @@ public class continuousCast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enableContinuousModeGlobal)
+        if (/*enableContinuousModeGlobal*/ variableAggInstance.enabledModeGlobal == variablesAggregator.CastModeEnum.ContinuousMode)
         {
             List<RaycastHit> hitPointsList = new List<RaycastHit>();
 
@@ -45,16 +45,16 @@ public class continuousCast : MonoBehaviour
 
                     case variablesAggregator.AlertBoxTypeEnum.Common:
                         // Use a common alert for all castBoxes
-                        this.GetComponent<initBoxes>().placeAlertBox(variableAggInstance.commonAlertBox, castBoxesWithContinuous[hitPointIndex], hitPointsList[hitPointIndex], variableAggInstance.placeAlertBoxAtEyeLevel);
+                        this.GetComponent<initBoxes>().placeAlertBox(variableAggInstance.commonAlertBox, castBoxesWithContinuous[hitPointIndex], hitPointsList[hitPointIndex]);
                         break;
 
-                    case variablesAggregator.AlertBoxTypeEnum.Peripheral:
-                        this.GetComponent<initBoxes>().placePeripheralAlertBox(variableAggInstance.peripheralAlertBox, hitPointsList[hitPointIndex]);
-                        break;
+                    //case variablesAggregator.AlertBoxTypeEnum.Peripheral:
+                    //    this.GetComponent<initBoxes>().placePeripheralAlertBox(variableAggInstance.peripheralAlertBox, hitPointsList[hitPointIndex]);
+                    //    break;
                 }
                 
                 // Debug.Log(hitPointsList[hitPointIndex].distance);
-                print(hitPointIndex + ": " + hitPointsList[hitPointIndex].point);
+                // print(hitPointIndex + ": " + hitPointsList[hitPointIndex].point);
 
                 if (variableAggInstance.activateRumble)
                 {
@@ -70,6 +70,22 @@ public class continuousCast : MonoBehaviour
                     else
                     {
                         this.GetComponent<initRumbleHandler>().StopRumble();
+                    }
+                }
+
+                if (variableAggInstance.changeAlertPitch)
+                {
+                    switch (variableAggInstance.alertBoxType)
+                    {
+                        case variablesAggregator.AlertBoxTypeEnum.BoxSpecific:
+                            break;
+
+                        case variablesAggregator.AlertBoxTypeEnum.Common:
+                            this.GetComponent<initBoxes>().changeAlertPitch(variableAggInstance.commonAlertBox, hitPointsList[hitPointIndex]);
+                            break;
+
+                        case variablesAggregator.AlertBoxTypeEnum.Peripheral:
+                            break;
                     }
                 }
 
@@ -101,58 +117,32 @@ public class continuousCast : MonoBehaviour
 
                     case variablesAggregator.AlertBoxTypeEnum.Common:
                         // Use a common alert for all castBoxes
-                        this.GetComponent<initBoxes>().deactivateAlertBox(variableAggInstance.commonAlertBox);
+                        // this.GetComponent<initBoxes>().deactivateAlertBox(variableAggInstance.commonAlertBox);
                         break;
 
-                    case variablesAggregator.AlertBoxTypeEnum.Peripheral:
-                        this.GetComponent<initBoxes>().deactivateAlertBox(variableAggInstance.peripheralAlertBox);
-                        break;
+                    //case variablesAggregator.AlertBoxTypeEnum.Peripheral:
+                    //    this.GetComponent<initBoxes>().deactivateAlertBox(variableAggInstance.peripheralAlertBox);
+                    //    break;
                 }
             }
         }
     }
 
     /// <summary>
-    ///     Toggles the continuous mode on or off
+    ///     Toggles the continuous mode on
     /// </summary>
     /// <remarks>
     ///     The function is called with the voice input <c>"Continuous Mode"</c>
     /// </remarks>
     public void continuousModeGlobalToggle()
     {
-        enableContinuousModeGlobal = !enableContinuousModeGlobal;
 
-        if (enableContinuousModeGlobal == true)
-        {
-            // Position of Continuous Mode
-            castBoxesWithContinuous = this.GetComponent<initBoxes>().findCastBoxesWithContinuousEnabled(variableAggInstance.raycastBoxes);
-            this.GetComponent<initBoxes>().positionAndScaleBoxes(
-                castBoxesWithContinuous,
-                variableAggInstance.boxesPerRow,
-                variableAggInstance.numberOfRows,
-                this.GetComponent<initBoxes>().userHeight
-            );
-        } else
-        {
-            // Disable alert boxes of cast boxes in continous mode
-            this.GetComponent<initBoxes>().deactivateAlertBox(castBoxesWithContinuous);
-            this.GetComponent<initBoxes>().deactivateAlertBox(variableAggInstance.commonAlertBox);
-            /*for (int i = 0; i < castBoxesWithContinuous.Length; i++)
-            {
-                if (castBoxesWithContinuous[i].GetComponent<initSingleBox>().alertBox.activeSelf == true)
-                {
-                    castBoxesWithContinuous[i].GetComponent<initSingleBox>().alertBox.SetActive(false);
-                }
-            }*/
+        variablesAggregator.CastModeEnum previousMode = variableAggInstance.enabledModeGlobal;
 
-            // Position of Scan Mode
-            this.GetComponent<initBoxes>().positionAndScaleBoxes(
-                variableAggInstance.raycastBoxes,
-                3,
-                3,
-                this.GetComponent<initBoxes>().userHeight
-            );
+        if (previousMode != variablesAggregator.CastModeEnum.ContinuousMode)
+        {
+            variableAggInstance.enabledModeGlobal = variablesAggregator.CastModeEnum.ContinuousMode;
+            this.GetComponent<initBoxes>().resetStatus();
         }
-
     }
 }

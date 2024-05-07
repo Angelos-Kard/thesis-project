@@ -3,19 +3,17 @@ using Microsoft.MixedReality.Toolkit.Input;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(initCastAndBoxesHandler))]
+[RequireComponent(typeof(initCastAndBoxesHandler)), RequireComponent(typeof(initBoxes))]
 public class handRaycast : MonoBehaviour
 {
     private variablesAggregator variableAggInstance;
     private GameObject[] handAlertBoxes;
-    private bool enabledHandAB;
     private Dictionary<string, GameObject> handAlertBoxesDict = new Dictionary<string, GameObject>();
 
     public void Start()
     {
         variableAggInstance = this.GetComponent<initCastAndBoxesHandler>().variableAggregatorObject.GetComponent<variablesAggregator>();
         handAlertBoxes = variableAggInstance.handAlertBoxes;
-        enabledHandAB = variableAggInstance.enabledHandAB;
 
         foreach (var handAlertBox in handAlertBoxes)
         {
@@ -29,8 +27,7 @@ public class handRaycast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enabledHandAB = variableAggInstance.enabledHandAB;
-        if (enabledHandAB == true)
+        if (variableAggInstance.enabledModeGlobal == variablesAggregator.CastModeEnum.HandsMode)
         {
             var isHandPresent = false;
 
@@ -58,6 +55,12 @@ public class handRaycast : MonoBehaviour
                                 if (handAlertBoxesDict.ContainsKey(source.SourceName)) {
                                     handAlertBoxesDict[source.SourceName].SetActive(true);
                                     handAlertBoxesDict[source.SourceName].transform.position = endPoint;
+
+                                    if (variableAggInstance.changeAlertPitch)
+                                    {
+                                        this.GetComponent<initBoxes>().changeAlertPitch(handAlertBoxesDict[source.SourceName], p.Result.Details.RayDistance);
+
+                                    }
                                 }
                                 /*var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                                 sphere.transform.localScale = Vector3.one * 0.01f;
@@ -66,7 +69,7 @@ public class handRaycast : MonoBehaviour
                             {
                                 if (handAlertBoxesDict.ContainsKey(source.SourceName))
                                 {
-                                    handAlertBoxesDict[source.SourceName].SetActive(false);
+                                    //handAlertBoxesDict[source.SourceName].SetActive(false);
                                 }
                             }
                         }
@@ -105,16 +108,17 @@ public class handRaycast : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///     Toggles Hands Mode on.
+    /// </summary>
     public void enabledHandABToggle()
     {
-        enabledHandAB = !enabledHandAB;
+        variablesAggregator.CastModeEnum previousMode = variableAggInstance.enabledModeGlobal;
 
-        if (enabledHandAB == false)
+        if (previousMode != variablesAggregator.CastModeEnum.HandsMode)
         {
-            foreach (var handAlertBox in handAlertBoxes)
-            {
-                handAlertBox.SetActive(false);
-            }
+            variableAggInstance.enabledModeGlobal = variablesAggregator.CastModeEnum.HandsMode;
+            this.GetComponent<initBoxes>().resetStatus();
         }
     }
 }

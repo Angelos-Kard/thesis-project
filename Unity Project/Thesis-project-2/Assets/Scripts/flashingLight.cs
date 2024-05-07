@@ -45,7 +45,7 @@ public class flashingLight : MonoBehaviour
     }
 
     /// <summary>
-    /// Stops the flash effect for the sepcific gameObject
+    /// Stops the flash effect for the specific gameObject
     /// </summary>
     public void StopFlash()
     {

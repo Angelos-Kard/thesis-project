@@ -27,6 +27,7 @@ public class initFlashHandler : MonoBehaviour
         }
     }
 
+    // TODO: To delete
     /// <summary>
     /// Disables the flash effect of specific gameObjects
     /// </summary>

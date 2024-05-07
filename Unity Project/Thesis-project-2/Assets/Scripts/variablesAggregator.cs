@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class variablesAggregator : MonoBehaviour
 {
+    public GameObject voiceCommandSound;
     // Variables for debugging purposes
     [Header("--- General Attributes ---")]
     public GameObject userPosition;
@@ -23,17 +24,19 @@ public class variablesAggregator : MonoBehaviour
     [Tooltip("The list of the raycast boxes"), ]
     public GameObject[] raycastBoxes;
     [Header("--- Alert Boxes ---")]
-    [Tooltip("The list of the alert boxes")]
-    public GameObject[] alertBoxes;
+    // TODO: To delete
+    // [Tooltip("The list of the alert boxes")]
+    // public GameObject[] alertBoxes;
     [Tooltip("The common alert box")]
     public GameObject commonAlertBox;
-    [Tooltip("The peripheral alert box"), ]
-    public GameObject peripheralAlertBox;
+    // TODO: To delete
+    //[Tooltip("The peripheral alert box")]
+    //public GameObject peripheralAlertBox;
     public enum AlertBoxTypeEnum
     {
         BoxSpecific,
         Common,
-        Peripheral
+        Peripheral // TODO: To delete
     }
     #if UNITY_EDITOR
         [Help("The logic for peripheral alert box was never implemented.\nIf it is selected, no alert box will be enabled",
@@ -45,12 +48,14 @@ public class variablesAggregator : MonoBehaviour
     public enum CastModeEnum
     {
         ContinuousMode,
-        ScanMode
+        ScanMode,
+        HandsMode,
+        StopMode
     }
-    // [Tooltip("The cast mode which will be used")]
-    // public CastModeEnum enabledModeGlobal;
     [Header("--- Cast Modes ---")]
-    public bool enableContinuousModeGlobal = false;
+    [Tooltip("The cast mode which will be used")]
+    public CastModeEnum enabledModeGlobal;
+    // public bool enableContinuousModeGlobal = false; TODO: To delete
 
     [Header("--- Scan/Continuous Mode Attributes ---")]
     [Tooltip("The number of cast boxes placed in each row"), Range(1.0f, 100.0f)]
@@ -61,8 +66,9 @@ public class variablesAggregator : MonoBehaviour
     [Header("--- Hand Mode Attributes---")]
     [Tooltip("The list of the hand alert boxes")]
     public GameObject[] handAlertBoxes;
-    [Tooltip("Enables the 'Hands mode'")]
-    public bool enabledHandAB = true;
+    // TODO: To delete
+    //[Tooltip("Enables the 'Hands mode'")]
+    //public bool enabledHandAB = true;
     public enum lightPositionEnum
     {
         Up,
@@ -98,14 +104,25 @@ public class variablesAggregator : MonoBehaviour
     #if UNITY_EDITOR
         [Help("The rumbleDuration variable is never used", UnityEditor.MessageType.Warning)]
     #endif
-    public float rumbleDuration = 1.0f;
+    public float rumbleDuration = 1.0f; // TODO: To delete
     /*public Dictionary<string, float> stopTimes = new Dictionary<string, float>()
     {
         {"safeStopTime", 2.0f},
         {"warningStopTime", 1.0f},
         {"dangerousStopTime", 0.25f}
     };*/
-    [Header("--- Flashing & Rumble common attributes ---")]
+    [Header("--- Pitch Change attributes ---")]
+    [Tooltip("The pitch of the alert sound changes based on the distance of the obstacle from the user")]
+    public bool changeAlertPitch = true;
+    [Tooltip("The value of the pitch for a safe distance"), Range(1.0f, 3.0f)]
+    public float pitchChangeSafeDist = 1.0f;
+    [Tooltip("The value of the pitch for a cautious distance"), Range(1.0f, 3.0f)]
+    public float pitchChangeWarningDist = 1.15f;
+    [Tooltip("The value of the pitch for a dangerous distance"), Range(1.0f, 3.0f)]
+    public float pitchChangeDangerousDist = 1.5f;
+    [Tooltip("The value of the pitch for a dangerous distance"), Range(1.0f, 3.0f)]
+    public float pitchChangeEndDist = 2.5f;
+    [Header("--- Flashing, Rumble & Pitch Change common attributes ---")]
     [Tooltip("The maximum distance considered safe"), Min(0.0f)]
     public float distanceThreadToActivate = 2.0f;
     [Tooltip("The maximum distance for which a user should be cautious"), Min(0.0f)]
