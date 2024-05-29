@@ -4,30 +4,22 @@ using Microsoft.MixedReality.Toolkit;
 using Microsoft.MixedReality.Toolkit.SpatialAwareness;
 using UnityEngine;
 
-public class hideMesh : MonoBehaviour
-{
+public class hideMesh : MonoBehaviour {
     public bool hideMeshAtStart = false;
 
-    private void Start()
-    {
-       if (hideMeshAtStart == true)
-        {
+    private void Start() {
+       if (hideMeshAtStart == true) {
             hideMeshFunc();
         }
     }
 
-    // Start is called before the first frame update
-    public void hideMeshFunc()
-    {
+    public void hideMeshFunc() {
         var observer = CoreServices.GetSpatialAwarenessSystemDataProvider<IMixedRealitySpatialAwarenessMeshObserver>();
-
         observer.DisplayOption = SpatialAwarenessMeshDisplayOptions.None;
     }
 
-    public void showMeshFunc()
-    {
+    public void showMeshFunc() {
         var observer = CoreServices.GetSpatialAwarenessSystemDataProvider<IMixedRealitySpatialAwarenessMeshObserver>();
-
         observer.DisplayOption = SpatialAwarenessMeshDisplayOptions.Visible;
     }
 }

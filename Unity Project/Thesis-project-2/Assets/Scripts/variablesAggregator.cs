@@ -24,24 +24,13 @@ public class variablesAggregator : MonoBehaviour
     [Tooltip("The list of the raycast boxes"), ]
     public GameObject[] raycastBoxes;
     [Header("--- Alert Boxes ---")]
-    // TODO: To delete
-    // [Tooltip("The list of the alert boxes")]
-    // public GameObject[] alertBoxes;
     [Tooltip("The common alert box")]
     public GameObject commonAlertBox;
-    // TODO: To delete
-    //[Tooltip("The peripheral alert box")]
-    //public GameObject peripheralAlertBox;
     public enum AlertBoxTypeEnum
     {
         BoxSpecific,
-        Common,
-        Peripheral // TODO: To delete
+        Common
     }
-    #if UNITY_EDITOR
-        [Help("The logic for peripheral alert box was never implemented.\nIf it is selected, no alert box will be enabled",
-        UnityEditor.MessageType.Warning)]
-    #endif
     public AlertBoxTypeEnum alertBoxType;
     [Tooltip("The alert box is placed at the height level of the eyes instead of the height level of the hitPoint")]
     public bool placeAlertBoxAtEyeLevel = true;
@@ -55,7 +44,6 @@ public class variablesAggregator : MonoBehaviour
     [Header("--- Cast Modes ---")]
     [Tooltip("The cast mode which will be used")]
     public CastModeEnum enabledModeGlobal;
-    // public bool enableContinuousModeGlobal = false; TODO: To delete
 
     [Header("--- Scan/Continuous Mode Attributes ---")]
     [Tooltip("The number of cast boxes placed in each row"), Range(1.0f, 100.0f)]
@@ -66,9 +54,6 @@ public class variablesAggregator : MonoBehaviour
     [Header("--- Hand Mode Attributes---")]
     [Tooltip("The list of the hand alert boxes")]
     public GameObject[] handAlertBoxes;
-    // TODO: To delete
-    //[Tooltip("Enables the 'Hands mode'")]
-    //public bool enabledHandAB = true;
     public enum lightPositionEnum
     {
         Up,
@@ -101,16 +86,6 @@ public class variablesAggregator : MonoBehaviour
         [Help("The logic for Constant and Linear rumble was never implemented", UnityEditor.MessageType.Warning)]
     #endif
     public RumbleModes rumbleModeSlected;
-    #if UNITY_EDITOR
-        [Help("The rumbleDuration variable is never used", UnityEditor.MessageType.Warning)]
-    #endif
-    public float rumbleDuration = 1.0f; // TODO: To delete
-    /*public Dictionary<string, float> stopTimes = new Dictionary<string, float>()
-    {
-        {"safeStopTime", 2.0f},
-        {"warningStopTime", 1.0f},
-        {"dangerousStopTime", 0.25f}
-    };*/
     [Header("--- Pitch Change attributes ---")]
     [Tooltip("The pitch of the alert sound changes based on the distance of the obstacle from the user")]
     public bool changeAlertPitch = true;

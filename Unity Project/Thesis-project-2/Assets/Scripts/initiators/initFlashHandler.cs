@@ -4,38 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(initCastAndBoxesHandler))]
-public class initFlashHandler : MonoBehaviour
-{
+public class initFlashHandler : MonoBehaviour {
     private variablesAggregator variableAggInstance;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         variableAggInstance = this.GetComponent<initCastAndBoxesHandler>().variableAggregatorObject.GetComponent<variablesAggregator>();
     }
 
     /// <summary>
     /// Disables the flash effect of all the gameObjects
     /// </summary>
-    public void StopFlashes()
-    {
+    public void StopFlashes() {
         GameObject[] flashImagesArray = variableAggInstance.flashingImages;
 
-        for (int i = 0; i < flashImagesArray.Length; i++)
-        {
-            flashImagesArray[i].GetComponent<flashingLight>().StopFlash();
-        }
-    }
-
-    // TODO: To delete
-    /// <summary>
-    /// Disables the flash effect of specific gameObjects
-    /// </summary>
-    /// <param name="flashImagesArray">The array of gameObjects for which the flash effect will be disabled</param>
-    public void StopFlashes(GameObject[] flashImagesArray)
-    {
-        for (int i = 0; i < flashImagesArray.Length; i++)
-        {
+        for (int i = 0; i < flashImagesArray.Length; i++) {
             flashImagesArray[i].GetComponent<flashingLight>().StopFlash();
         }
     }
@@ -45,24 +27,19 @@ public class initFlashHandler : MonoBehaviour
     /// </summary>
     /// <param name="lightPositions">The position of the hitPoint relative to the user</param>
     /// <param name="flashColor">The color of the flash</param>
-    public void StartMultipleFlashes(variablesAggregator.lightPositionEnum[] lightPositions, Color flashColor)
-    {
+    public void StartMultipleFlashes(variablesAggregator.lightPositionEnum[] lightPositions, Color flashColor) {
         GameObject[] flashImagesArray = variableAggInstance.flashingImages;
 
-        for (int i = 0; i < flashImagesArray.Length; i++)
-        {
+        for (int i = 0; i < flashImagesArray.Length; i++) {
             bool shouldBeEnabled = false;
 
-            for (int j = 0; j < lightPositions.Length; j++)
-            {
+            for (int j = 0; j < lightPositions.Length; j++) {
                 if (flashImagesArray[i].GetComponent<flashingLight>().lightPosition == lightPositions[j]) shouldBeEnabled = true;
             }
 
-            if (shouldBeEnabled)
-            {
+            if (shouldBeEnabled) {
                 flashImagesArray[i].GetComponent<flashingLight>().StartFlash(1, 0.75f, flashColor);
-            } else
-            {
+            } else {
                 flashImagesArray[i].GetComponent<flashingLight>().StopFlash();
             }
         }
@@ -73,26 +50,19 @@ public class initFlashHandler : MonoBehaviour
     /// </summary>
     /// <param name="hitPoint">The closest point of the mesh to the user</param>
     /// <returns>The position of the hitPoint (<see cref="variablesAggregator.lightPositionEnum"/>)</returns>
-    public variablesAggregator.lightPositionEnum[] FindHitPointPosition(RaycastHit hitPoint)
-    {
+    public variablesAggregator.lightPositionEnum[] FindHitPointPosition(RaycastHit hitPoint) {
         List<variablesAggregator.lightPositionEnum> lightPositionToreturn = new List<variablesAggregator.lightPositionEnum>();
         Vector3 relativePosition = variableAggInstance.userPosition.transform.InverseTransformPoint(hitPoint.point);
         
-        if (relativePosition.x > 0.3f)
-        {
+        if (relativePosition.x > 0.3f) {
             lightPositionToreturn.Add(variablesAggregator.lightPositionEnum.Right);
-        }
-        else if (relativePosition.x < -0.3f)
-        {
+        } else if (relativePosition.x < -0.3f) {
             lightPositionToreturn.Add(variablesAggregator.lightPositionEnum.Left);
         }
 
-        if (relativePosition.y > 0)
-        {
+        if (relativePosition.y > 0) {
             lightPositionToreturn.Add(variablesAggregator.lightPositionEnum.Up);
-        }
-        else
-        {
+        } else {
             lightPositionToreturn.Add(variablesAggregator.lightPositionEnum.Down);
         }
 
@@ -122,29 +92,19 @@ public class initFlashHandler : MonoBehaviour
     /// </summary>
     /// <param name="distance"></param>
     /// <returns></returns>
-    public Color FindColorBasedOnDistance(float distance)
-    {
+    public Color FindColorBasedOnDistance(float distance) {
         Color dangerColor = variableAggInstance.dangerColor;
         Color warningColor = Color.yellow;
         Color safeColor = Color.green;
 
-        if (distance >= 0 && distance <= variableAggInstance.dangerIndicatorThread)
-        {
+        if (distance >= 0 && distance <= variableAggInstance.dangerIndicatorThread) {
             return dangerColor;
-        }
-        else if (distance > variableAggInstance.dangerIndicatorThread && distance <= variableAggInstance.warningIndicatorThread)
-        {
+        } else if (distance > variableAggInstance.dangerIndicatorThread && distance <= variableAggInstance.warningIndicatorThread) {
             return warningColor;
-        }
-        else if (distance > variableAggInstance.warningIndicatorThread && distance < variableAggInstance.distanceThreadToActivate)
-        {
+        } else if (distance > variableAggInstance.warningIndicatorThread && distance < variableAggInstance.distanceThreadToActivate) {
             return safeColor;
-        }
-        else
-        {
+        } else {
             return new Color(0, 0, 0, 0);
         }
-        
     }
-
 }
