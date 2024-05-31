@@ -622,7 +622,7 @@ PlayerSettings:
   metroCertificatePassword: 
   metroCertificateSubject: DefaultCompany
   metroCertificateIssuer: DefaultCompany
-  metroCertificateNotAfter: 80112dd507e2da01
+  metroCertificateNotAfter: 80fc33c6ecafdb01
   metroApplicationDescription: Template_3D
   wsaImages: {}
   metroTileShortName: Thesis-project-2

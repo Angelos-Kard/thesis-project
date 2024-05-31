@@ -5,17 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(initSingleBox))]
 public class singleRaycast : MonoBehaviour
 {
-    // public GameObject variableAggregatorObject;
-    /*public GameObject handlerObject;*/
-    // private variablesAggregator variableAggInstance;
-
     private bool m_HitDetect;
     private RaycastHit hitInfo;
-
-    public void Start()
-    {
-        // variableAggInstance = variableAggregatorObject.GetComponent<variablesAggregator>();
-    }
 
     /// <summary>
     ///     Casts a raycast or boxcast from the position of a castBox and detects a hitPoint.
@@ -24,8 +15,7 @@ public class singleRaycast : MonoBehaviour
     /// <returns>
     ///     The hitPoint of the cast
     /// </returns>
-    public RaycastHit SingleRaycastFunc(variablesAggregator variableAggInstance)
-    {
+    public RaycastHit SingleRaycastFunc(variablesAggregator variableAggInstance) {
         Vector3 fwd = transform.TransformDirection(Vector3.forward); // forward direction
 
         float maxDistance = variableAggInstance.maxDistance;
@@ -44,28 +34,4 @@ public class singleRaycast : MonoBehaviour
 
         return hitInfo;        
     }
-
-    /*
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-
-        //Check if there has been a hit yet
-        if (m_HitDetect)
-        {
-            //Draw a Ray forward from GameObject toward the hit
-            Gizmos.DrawRay(transform.position, transform.forward * hitInfo.distance);
-            //Draw a cube that extends to where the hit exists
-            Gizmos.DrawWireCube(transform.position + transform.forward * hitInfo.distance, transform.localScale);
-        }
-        //If there hasn't been a hit yet, draw the ray at the maximum distance
-        else
-        {
-            //Draw a Ray forward from GameObject toward the maximum distance
-            // Gizmos.DrawRay(transform.position, transform.forward * m_MaxDistance);
-            //Draw a cube at the maximum distance
-            // Gizmos.DrawWireCube(transform.position + transform.forward * m_MaxDistance, transform.localScale);
-        }
-    }
-    //*/
 }
