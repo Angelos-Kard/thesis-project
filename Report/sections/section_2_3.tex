@@ -31,6 +31,12 @@
     \item \textbf{USB-C Port} (Θύρα τύπου USB-C): Η θύρα USB-C, η οποία βρίσκεται κάτω από το κουμπί ενεργοποίησης, χρησιμοποιείται για την φόρτιση της συσκευής και για τη σύνδεση αυτής με άλλες συσκευές.
 \end{itemize}
 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=100mm]{images/microsoft_hololens_2_parts1.png}
+    \caption[Αισθητήρες στη προσωπίδα (visor) της συσκεύης Microsoft HoloLens 2]{Αισθητήρες στη προσωπίδα (visor) της συσκεύης Microsoft HoloLens 2 {\footnotesize (Πηγή: learn.microsoft.com)}}\label{fig:hololensDeviceVisor}
+\end{figure}
+
 Επιπλέον, η συσκευή διαθέτει ένα πλήθος από αισθητήρες, οι οποίοι, όπως αναφέρθηκε, βρίσκονται στο visor (\hyperref[fig:hololensDeviceVisor]{\schema~\ref*{fig:hololensDeviceVisor}}). Ειδικότερα, διαθέτει~\cite{scooley_2023_hololens}:
 \begin{itemize}
     \item 4 κάμερες ορατού φωτός, κάθε μία από τις όποιες έχει πεδίο ορατότητας (Field of View, FOV) 96.1\textdegree. Οι κάμερες αυτές χρησιμοποιούνται για τον εντοπισμό της θέσης και του προσανατολισμού του κεφαλιού (\textbf{Head Tracking}).
@@ -39,11 +45,6 @@
     \item 1 μονάδα μέτρησης αδράνειας (\textbf{Inertia Measurement Unit, IMU}), η οποία περιλαμβάνει επιταχυνσιόμετρο, γυροσκόπιο και μαγνητόμετρο.
     \item 1 κάμερα των 8 megapixels, η οποία καταγράφει και βίντεο σε ανάλυση 1080p και 30 FPS\@.
 \end{itemize}
-\begin{figure}[!hb]
-    \centering
-    \includegraphics[width=100mm]{images/microsoft_hololens_2_parts1.png}
-    \caption[Αισθητήρες στη προσωπίδα (visor) της συσκεύης Microsoft HoloLens 2]{Αισθητήρες στη προσωπίδα (visor) της συσκεύης Microsoft HoloLens 2 {\footnotesize (Πηγή: learn.microsoft.com)}}\label{fig:hololensDeviceVisor}
-\end{figure}
 
 Τέλος, μερικές ακόμη σημαντικές προδιαγραφές της συσκευής αναφέρονται στον \hyperref[table:hololensSpecs]{Πίνακα~\ref*{table:hololensSpecs}}.
 \begin{table}[!ht]
@@ -73,18 +74,19 @@
 
 \subsection{Τρόποι Αλληλεπίδρασης}\label{subsec:hololensInteraction}
 Ο χρήστης έχει στη διάθεση τρεις βασικούς τρόπους με τους οποίους μπορεί να αλληλεπιδράσει με τη συσκευή και τα ολογράμματα που δημιουργεί~\cite{scooley_2023_hololens}:
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/holographic_hand.png}
+    \caption[Εικονική αναπαράσταση χεριού]{Εικονική αναπαράσταση χεριού {\footnotesize (Πηγή: learn.microsoft.com)}}\label{fig:handRepresentation}
+\end{figure}
+
 \begin{enumerate}
     \item \textbf{Με εντοπισμό και χρήση των χεριών (Hand Tracking)}: Είναι δυνατός ο εντοπισμός των κινήσεων και των δύο χεριών, καθώς και των δαχτύλων αυτών, όταν αυτά βρίσκονται εντός του πεδίου ορατότητας (FOV) της συσκευής. Τα εικονικά χέρια που δημιουργούνται για την αλληλεπίδραση αποτελούν ένα σύνολο σημείων (\hyperref[fig:handRepresentation]{\schema~\ref*{fig:handRepresentation}}), όπου κάθε ένα αντιπροσωπεύει σύνδεσμο των χεριών ή σημεία αυτών~\cite{keveleigh_2022_hand}.
     
-    \begin{figure}[!hb]
-        \centering
-        \includegraphics[width=0.5\textwidth]{images/holographic_hand.png}
-        \caption[Εικονική αναπαράσταση χεριού]{Εικονική αναπαράσταση χεριού {\footnotesize (Πηγή: learn.microsoft.com)}}\label{fig:handRepresentation}
-    \end{figure}
-    
     Ο χρήστης μπορεί να αλληλεπιδράσει με τα εικονικά αντικείμενα, είτε από κοντινή~\cite{caseymeekhof_2022_direct}, είτε από μακρινή απόσταση~\cite{caseymeekhof_2022_point} και να πραγματοποιήσει συγκεκριμένες χειρονομίες (Gestures), όπως είναι το Air Tap, το Tap and Hold~\cite{sostel_2023_gaze} και το Start Gesture (επιτρέπει την πρόσβαση στο κεντρικό μενού)~\cite{shengkait_2022_start}, ώστε να υποδείξει την ενέργεια που επιθυμεί. Για παράδειγμα, με τους δείκτες των χέριων, ο χρήστης μπορεί να αγγίξει αντικείμενα (Touch) (\hyperref[fig:hololensInteractionTouch]{\schema~\ref*{fig:hololensInteractionTouch}}), να πιέσει κουμπιά (Press) (\hyperref[fig:hololensInteractionPress]{\schema~\ref*{fig:hololensInteractionPress}}), να κάνει ανακύλιση μιας σελίδας (Scroll) (\hyperref[fig:hololensInteractionScroll]{\schema~\ref*{fig:hololensInteractionScroll}}) ή να κάνει Zoom (\hyperref[fig:hololensInteractionZoom]{\schema~\ref*{fig:hololensInteractionZoom}})~\cite{caseymeekhof_2022_direct}.
     
-    \begin{figure}[t]
+    \begin{figure}[!ht]
         \centering
         \begin{subfigure}{0.3\textwidth}
             \centering

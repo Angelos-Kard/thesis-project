@@ -26,9 +26,9 @@
 
 Εφόσον η γλώσσα προγρμματισμού, που μπορεί να χρησιμοποιήσει ο προγραμματιστής για να αναπτύξει λειτουργίες, που δεν παρέχονται από την μηχανή, είναι η αντικειμενοστρεφής C\#, τότε βασικό στοιχείο της Unity είναι η χρήση των κλάσεων (Classes) και των αντικειμένων (Objects), με κυριότερη κλάση να είναι το \code{GameObject}~\cite{unitytechnologies_2023_gameobjects}. Όλα τα στοιχεία που μπορούμε να εντοπίσουμε σε μια εφαρμογή, όπως οι χαρακτήρες, η κάμερα, ο φωτισμός, αποτελούν αντικείμενο της κλάσης \code{GameObject}. Από μόνα τους, τα αντικείμενα αυτά δεν διαθέτουν κάποια ιδιαίτερη λειτουργία ή συμπεριφορά, αλλά λειτουργούν ως <<άδεια δοχεία>>, στα οποία προστίθενται \code{Components}~\cite{unitytechnologies_2023_introduction}. Τα \code{Components} αποτελούν τα λειτουργικά μέρη των \code{GameObjects}, καθώς είναι αυτά τα οποία καθορίζουν τη συμπεριφορά τους. Κάθε \code{GameObject} μπορεί να διαθέτει άπειρα \code{Components}, τα οποία διαθέτουν παραμέτρους, τις οποίες ο προγραμματιστής μπορεί να προσαρμόσει ανάλογα με την επιθυμητή συμπεριφορά. Ωστόσο όλα τα \code{GameObjects} διαθέτουν πάντα ένα και μόνο ένα \code{Transform} component, το οποίο καθορίζει τη θέση, περιστροφή και κλίμακα του αντικειμένου. Επιπλέον, είναι δυνατή η δημιουργία custom \code{Component} από τον προγραμματιστή με τη χρήση του Unity Scripting API, δηλαδή με τη συγγραφή αρχείων κώδικα σε C\# (C\# scripts)~\cite{unitytechnologies_2023_creating}. Ένα \code{GameObject}, επίσης, μπορεί να έχει πολλαπλά `children' \code{GameObjects}, το καθένα με τα δικά του \code{Components} και παραμετροποιήσεις. Αν ο χρήστης θέλει να χρησιμοποιήσει ένα τέτοιο σύνολο από \code{GameObjects} με τα \code{Components} που διαθέτουν, τότε, για λόγους ευκολίας, μπορεί να δημιουργήσει ένα \code{Prefab}, με βάση το οποίο δημιουργεί πολλαπλά αντίγραφα με κοινή συμπεριφορά.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \centering
-    \includegraphics[width=1\linewidth]{images/unity_interface.png}
+    \includegraphics[width=0.9\linewidth]{images/unity_interface.png}
     \caption[Το περιβάλλον ανάπτυξης (Editor) της Unity]{Το περιβάλλον ανάπτυξης (Editor) της Unity {\footnotesize (Πηγή: docs.unity3d.com)}}\label{fig:unityInterface}
 \end{figure}
 
@@ -45,7 +45,7 @@
     \item[(\textbf{B})] Hierarchy Window: Το παράθυρο αυτό (\hyperref[fig:unityInterfaceHierarchy]{\schema~\ref*{fig:unityInterfaceHierarchy}}) παρουσιάζει, σε μορφή λίστας, τα \code{GameObjects} που βρίσκονται σε μια σκηνή (Scene) και τη δομή αυτών. Σκηνή (Scene) αποτελεί το αρχείο που περιέχει το περιβάλλον, το μενού και τα αντικείμενα της εφαρμογής.
     
     Επιπλέον, έχουμε τη δυνατότητα να αλλάξουμε τη σειρά και το `parenting' των \code{GameObjects}, καθώς και να δημιουργήσουμε, να αντιγράψουμε ή να διαγράψουμε ένα \code{GameObject}. Τέλος, μπορούμε και να επιλέξουμε ποια \code{GameObjects} θα είναι εμφανή στο Scene view~\cite{unitytechnologies_2023_hierarchy}.
-    \begin{figure}[!h]
+    \begin{figure}[!hb]
         \centering
         \includegraphics[width=0.5\linewidth]{images/unity_interface_hierarchy.png}
         \caption{Το Hierarchy window του Editor}\label{fig:unityInterfaceHierarchy}
@@ -53,13 +53,13 @@
     \item[(\textbf{C})] Game View: Το Game view (\hyperref[fig:unityInterfaceGameView]{\schema~\ref*{fig:unityInterfaceGameView}}) αποτελεί το παράθυρο στο οποίο παρουσιάζεται η τελική μορφή την οποία έχει η εφαρμογή μας, όπως αυτή γίνεται render από τις κάμερες (\code{Camera} component), που έχουμε στη σκηνή. Από τα κουμπιά που βρίσκονται στο toolbar μπορούμε να ορίσουμε τη ροή εκτέλεσης της εφαρμογής (έναρξη, παύση, τερματισμός κ.α.) στο Play mode. Play mode ονομάζεται η λειτουργία κατά την οποία εκτελείται η εφαρμογή και παρουσιάζεται στο Game view. Κατά την λειτουργία, μπορούν να πραγματοποιηθούν αλλαγές σε διάφορα στοιχεία, όπως \code{GameObjects}, παραμέτρους από \code{Components} κ.α., ωστόσο οι αλλαγές αυτές είναι προσωρινές και αναιρούνται, όταν ολοκληρωθεί η εκτέλεση της εφαρμογής. Τέλος, στην κορυφή του παραθύρου, υπάρχει μια εργαλειοθήκη ώστε να προσαρμόσει ο χρήστης το Game view παράθυρο και το περιεχόμενο αυτού~\cite{unitytechnologies_2023_game}.
     \begin{figure}[!ht]
         \centering
-        \includegraphics[width=1\linewidth]{images/unity_interface_game_view.png}
+        \includegraphics[width=0.9\linewidth]{images/unity_interface_game_view.png}
         \caption{Το Game view του Editor}\label{fig:unityInterfaceGameView}
     \end{figure}
     \item[(\textbf{D})] Scene View: Αποτελεί το παράθυρο (\hyperref[fig:unityInterfaceSceneView]{\schema~\ref*{fig:unityInterfaceSceneView}}), όπου ο χρήστης μπορεί να αλληλεπιδράσει με τα Game Objects τα οποία έχει εισάγει σε μια σκηνή. Στη Scene view, έχουμε μια τρισδιάστατη ή δισδιάστατη προοπτική της εφαρμογής, όπως αυτή εμφανίζεται πριν την εκτέλεση κάποιου κώδικα. Τέλος, όπως και στο Game view, στην κορυφή του παραθύρου, υπάρχει μια εργαλειοθήκη όπου ο χρήστης μπορεί να τροποποιήσει το Scene view με βάση τις ανάγκες, όπως είναι η απόκρυψη των Gizmos, η αφαίρεση του φωτισμού και η αλλαγή από 3D σε 2D προοπτική και αντίστροφα~\cite{unitytechnologies_2023_scene}.
-    \begin{figure}[!hb]
+    \begin{figure}[!ht]
         \centering
-        \includegraphics[width=1\linewidth]{images/unity_interface_scene_view.png}
+        \includegraphics[width=0.9\linewidth]{images/unity_interface_scene_view.png}
         \caption{Το Scene view του Editor}\label{fig:unityInterfaceSceneView}
     \end{figure}
     \item[(\textbf{E})] Inspector Window: Απο το παράθυρο αυτό (\hyperref[fig:unityInterfaceInspector]{\schema~\ref*{fig:unityInterfaceInspector}}), ο χρήστης μπορεί να δει και να τροποποιήσει παραμέτρους πολλών στοιχείων του Editor, όπως είναι τα \code{GameObjects}, τα \code{Componetns}, τα υλικά (Materials), τα Assets, καθώς και ρυθμίσεις του Editor. Επιλέγοντας κάποιο από τα ανωτέρω στοιχεία, στον Inspector, εμφανίζονται όλοι οι παράμετροι, σχετικές με το το στοιχείο αυτό, τις οποίες μπορεί να αλλάξει ο χρήστης. Για παράδειγμα, αν επιλεχθεί ένα \code{GameObject}, τότε εμφανίζονται όλα τα \code{Components} που έχουν προστεθεί σε αυτόν. Αν κάποιο από τα \code{Components} αποτελεί Script που έχει δημιουργήσει ο χρήστης, τότε στον Inspector παρουσιάζονται οι public μεταβλητές του αρχείου αυτού~\cite{unitytechnologies_2023_inspector}.
@@ -73,7 +73,7 @@
     Το Asset είναι οποιοδήποτε αντικείμενο χρησιμοποιείται κατά την ανάπτυξη της εφαρμογής, όπως είναι ένα αρχείο ήχου, μια εικόνα, ένα 3D μοντέλο~\cite{unitytechnologies_2023_asset}. Αυτά τα assets μπορούν να έχουν δημιουργηθεί από το χρήστη ή από ένα τρίτο άτομο και έχουν αποκτήθει από το χρήστη από καταστήματα, όπως το Unity Asset Store.
 
     Τέλος, όπως και σε άλλες περιοχές του Editor, στην κορυφή του παραθύρου υπάρχει μια εργαλειοθήκη, που επιτρέπει στο χρήστη να προσθέσει Assets στον τρέχοντα φάκελο ή να αναζητήσει κάποιο Asset με χρήση διάφορων φίλτρων~\cite{unitytechnologies_2023_project}.
-    \begin{figure}[!ht]
+    \begin{figure}[!hb]
         \centering
         \includegraphics[width=1\linewidth]{images/unity_interface_project.png}
         \caption{Το Project window του Editor}\label{fig:unityInterfaceProject}
@@ -85,7 +85,7 @@
         \item να ελέγξει την κατάστηση του Global illumination
         \item να ελέγξει την τρέχουσα κατάσταση του Editor, σε περίπτωση που αυτός πραγματοποιεί compilation αρχείων C\# ή άλλες ασύγχρονες εργασίες
     \end{itemize}
-    \begin{figure}[!h]
+    \begin{figure}[!hb]
         \centering
         \includegraphics[width=1\linewidth]{images/unity_interface_status_bar.png}
         \caption{Το Status bar του Editor}\label{fig:unityInterfaceStatusBar}

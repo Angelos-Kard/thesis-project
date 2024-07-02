@@ -6,7 +6,7 @@
 \subsection{Προετοιμασία και Εγκατάσταση}\label{subsec:developSetup}
 % H κύρια γλώσσα προγραμματισμού, που συνιστά η Microsoft για την ανάπτυξη εφαρμογών για το headset HoloLens 2 είναι η C\#. H Microsoft, για την συγγραγή κώδικα σε αυτή τη γλώσσα, συνιστά τη χρήση του IDE Visual Studio, ενώ για την εκτέλεση αυτού, τη μηχανή γραφικών Unity.
 
-Αρχικά εγκαταστήσαμε όλα τα απαραίτητα εργαλεία, τα όποια συνιστά η Microsoft για την ανάπτυξη εφαρμογών για το headset HoloLens 2. Αφού η συνιστώμενη γλώσσα προγραμματισμού, την όποια και επιλέξαμε, είναι η C\#, έπρεπε να εγκαταστήσουμε το IDE Visual Studio, τη μηχανή παιχνιδιών Unity, καθώς και το εργαλείο Mixed Reality Feature Tool (\hyperref[fig:mrft]{\schema~\ref*{fig:mrft}}) για την προσθήκη του MRTK στο project.
+Αρχικά εγκαταστήσαμε όλα τα απαραίτητα εργαλεία, τα όποια συνιστά η Microsoft για την ανάπτυξη εφαρμογών για το headset HoloLens 2. Αφού η συνιστώμενη γλώσσα προγραμματισμού, την όποια και επιλέξαμε, είναι η C\#, έπρεπε να εγκαταστήσουμε το IDE Visual Studio, τη μηχανή γραφικών Unity, καθώς και το εργαλείο Mixed Reality Feature Tool (\hyperref[fig:mrft]{\schema~\ref*{fig:mrft}}) για την προσθήκη του MRTK στο project.
 
 \begin{figure}[!h]
     \centering
@@ -19,8 +19,8 @@
 Μετά την ολοκλήρωση της εγκατάστασης, πρώτο βήμα στην ανάπτυξη της εφαρμογής ήταν η δημιουργία ενός project στη Unity, το οποίο διαθέτει μια σκηνή με τα αρχικώς απαραίτητα \code{GameObjects}, όπως είναι η Camera, ενώ παρέχει πληθώρα από \code{Components} και Assets. Ωστόσο, αυτές οι <<πρώτες ύλες>> δεν επαρκούν για την ανάπτυξη εφαρμογών μικτής πραγματικότητας. Για το λόγο αυτό, θα αξιοποιήσουμε το Mixed Reality Feature Tool για την προσθήκη των αναγκαίων packages, όπως αυτά αναφέρονται στον \hyperref[table:mrft]{Πίνακα~\ref*{table:mrft}}, με σημαντκότερο από όλα το MRTK\@.
 
 \begin{table}[!ht]
+    \caption{Packages που ενσωματώθηκαν στο project με τη χρήση του Mixed Reality Feature Tool}\label{table:mrft}
     \begin{tabularx}{\textwidth}{|X|X|}
-        \caption{Packages που ενσωματώθηκαν στο project με τη χρήση του Mixed Reality Feature Tool}\label{table:mrft}
         \hline
         Mixed Reality Toolkit Foundation & version 2.7.3 \\
         \hline
@@ -35,13 +35,13 @@
 
 Με την ενσωμάτωση του MRTK, προστίθενται στη σκηνή ορισμένα βασικά \code{GameObjects}, ενώ στο project συμπεριλαμβάνονται απαραίτητα components για την βελτίωση της συμπεριφοράς των εικονικών αντικειμένων και την καλύτερη αλληλεπίδραση του χρήστη με αυτά, assets για τη διαμόρφωση του UI (User Interface) της εφαρμογής, καθώς και λειτουργίες, οι οποίες θα διευκολύνουν σημαντικά την αναπτύξη και δοκιμή της εφαρμογής μας~\cite{polarkev_2022_mrtk2unity}.
 
-Πλέον, η ιεραρχία των \code{GameObjects} στη σκηνή διαμορφώνεται με τον τρόπο που φαίνεται στο \hyperref[fig:developHierarchyMRTK]{\schema~\ref*{fig:developHierarchyMRTK}}.
-
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\textwidth]{images/develop_hierarchyAfterMRTK.png}
     \caption{Το hierarchy window μετά την προσθήκη του MRTK}\label{fig:developHierarchyMRTK}
 \end{figure}
+
+Πλέον, η ιεραρχία των \code{GameObjects} στη σκηνή διαμορφώνεται με τον τρόπο που φαίνεται στο \hyperref[fig:developHierarchyMRTK]{\schema~\ref*{fig:developHierarchyMRTK}}.
 
 Τα νέα \code{GameObjects}, που προστέθηκαν, είναι:
 \begin{itemize}
@@ -53,7 +53,7 @@
 
 Επιπλέον, το MRTK μας δίνει τη δυνατότητα να κάνουμε προσομοίωση χρήσης της εφαρμογής μέσα από τον Editor της Unity, το οποίο ήταν καθοριστικό στα πρώτα στάδια ανάπτυξης της εφαρμογής για τo debugging και τις δοκιμές αυτής. Τέλος, η λειτουργία Holographic Remoting του MRTK επιτρέπει στη Unity να συνδεθεί με το HoloLens 2 μέσω του Holographic Remoting Player (\hyperref[fig:developHolographicRemotingPlayer]{\schema~\ref*{fig:developHolographicRemotingPlayer}}), ώστε το headset να <<τρέξει>> την εφαρμογή μας και να δοκιμαστεί υπό πραγματικές συνθήκες~\cite{florianbagarmicrosoft_2023_holographic}. Η λειτουργία αυτή αξιοποιήθηκε στα τελευταία στάδια ανάπτυξης, με σκοπό να ελεγχθεί ταχύτατα η λειτουργικότητα της εφαρμογής, αλλά και για να γίνουν οι απαραίτητες αλλαγές σε προβλήματα που δεν θα μπορούσαμε να εντοπίσουμε κατά την προσομοίωση.
 
-\begin{figure}[!h]
+\begin{figure}[!hb]
     \centering
     \includegraphics[width=0.8\textwidth]{images/develop_holographicRemotingPlayer.jpg}
     \caption{Το Holographic Remoting Player σε αναμονή σύνδεσης}\label{fig:developHolographicRemotingPlayer}
