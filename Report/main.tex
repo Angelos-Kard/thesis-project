@@ -129,44 +129,64 @@ backgroundcolor=\color{cloudwhite},
 % \captionsetup[lstlisting]{format=plain, labelfont=black,textfont=black, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
 
 \newcommand{\shortdoctitle}{Διπλωματική Εργασία}
+\newcommand{\shortdoctitleEnglish}{Diploma Thesis}
+
 \newcommand{\doctitle}{Ανάπτυξη συστήματος μεικτής πραγματικότητας για υποστήριξη ατόμων με προβλήματα όρασης}
+\newcommand{\doctitleEnglish}{Development of a mixed reality system to support individuals with visual impairment}
+
 \newcommand{\division}{Ηλεκτρονικής και Yπολογιστών}
+\newcommand{\divisionEnglish}{Electronics and Computers}
 
-\newcommand{\me}{Αγγελου Καρδουτσου του Αποστολου}
-\newcommand{\metonoi}{Άγγελου Καρδούτσου του Απόστoλου}
+\newcommand{\me}{Αγγελου Καρδουτσου}
+\newcommand{\metonoi}{Άγγελου Καρδούτσου}
+\newcommand{\nomme}{Άγγελος Καρδούτσος}
+\newcommand{\nommeEnglish}{Angelos Kardoutsos}
 
-\newcommand{\nomme}{Άγγελος Καρδούτσος του Απόστολου}
+\newcommand{\meF}{Αγγελου Καρδουτσου του Αποστολου}
+\newcommand{\metonoiF}{Άγγελου Καρδούτσου του Απόστoλου}
+\newcommand{\nommeF}{Άγγελος Καρδούτσος του Απόστολου}
 
 \newcommand{\studnum}{1059372}
+
 \newcommand{\keywordsEnglish}{Augmented Reality, Virtual Reality, Mixed Reality, Microsoft HoloLens 2, Microsoft Visual Studio, Unity, spatial mapping, spatial audio, visual impairment, accessibility}
 \newcommand{\keywords}{Εκτεταμένη Πραγματικότητα, Επαυξημένη Πραγματικότητα, Μικτή Πραγματικότητα, Microsoft HoloLens 2, Microsoft Visual Studio, Unity, χωρική χαρτογράφηση, χωρικός ήχος, απώλεια όρασης, προσβασιμότητα}
+
 \newcommand{\arximonthyear}{Μάιος 2023}
 \newcommand{\telosmonthyear}{Ιούλιος 2024}
+\newcommand{\telosmonthyearEN}{July 2024}
+
 % To modify
 \newcommand{\thesisnum}{XXXX}
+
 \newcommand{\supname}{Νικόλαος Αβούρης}
 \newcommand{\suptitle}{Καθηγητής}
+\newcommand{\supnameEN}{Nikolaos Avouris}
+\newcommand{\suptitleEN}{Professor}
+
 \newcommand{\headofdivision}{Γεώργιος Θεοδωρίδης}
 \newcommand{\headofdivisiontitle}{Καθηγητής}
-\newcommand{\didaktorikosOnoma}{Γεώργιος Παπαδούλης}
-% To modify
-\newcommand{\imerominiaExetasis}{10/07/2024}
-% To modify
-\newcommand{\epitropiEna}{Όνομα Επώνυμο}
-% To modify
-\newcommand{\epitropiDyo}{Όνομα Επώνυμο}
-% To modify
-\newcommand{\epitropiEnaTitle}{Βαθμίδα}
-% To modify
-\newcommand{\epitropiDyoTitle}{Βαθμίδα}
+\newcommand{\headofdivisionEN}{George Theodoridis}
+\newcommand{\headofdivisiontitleEN}{Professor}
 
-\newcommand{\depECE}{ΗΜ\&ΤΥ}
+\newcommand{\didaktorikosOnoma}{Γεώργιος Παπαδούλης}
+\newcommand{\imerominiaExetasis}{10/07/2024}
+
+\newcommand{\epitropiEna}{Χρήστος Φείδας}
+\newcommand{\epitropiEnaTitle}{Αναπληρωτής Καθηγητής}
+\newcommand{\epitropiEnaEN}{Christos Feidas}
+\newcommand{\epitropiEnaTitleEN}{Associate Professor}
+
+\newcommand{\epitropiDyo}{Χρήστος Σιντόρης}
+\newcommand{\epitropiDyoTitle}{Ε.ΔΙ.Π.}
+\newcommand{\epitropiDyoEN}{Christos Sintoris}
+\newcommand{\epitropiDyoTitleEN}{Laboratory Teaching Staff}
 
 \newcommand{\uoP}{Πανεπιστήμιο Πατρών}
+\newcommand{\uoPEnglish}{University of Patras}
 
 \setlength{\parindent}{24pt}
 
-\author{\me}
+\author{\nomme}
 
 \newcommand{\schema}{Σχήμα}
 
@@ -191,15 +211,22 @@ backgroundcolor=\color{cloudwhite},
 %set the number of sectioning levels that get number and appear in the contents
 \setcounter{page}{3}
 
-\include{titlepage}
+\include{EnglishPages/titlepageEnglish}
+
+\input{EnglishPages/copyrightsPageEnglish.tex}
+
+\include{EnglishPages/certificationEnglish}
 
 \clearemptydoublepage
+
+\include{titlepage}
+
+\input{copyrightsPage}
 
 \include{certification}
 
-\clearemptydoublepage
 
-\include{about}
+% \include{about}
 
 \clearemptydoublepage
 
