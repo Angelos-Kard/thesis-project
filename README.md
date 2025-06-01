@@ -1,18 +1,4 @@
-# Thesis Project
-
-- [Thesis Project](#thesis-project)
-- [1. Introduction](#1-introduction)
-- [1.1. Current Solutions and State of the Art](#11-current-solutions-and-state-of-the-art)
-- [2. Technology](#2-technology)
-  - [2.1. Hololens \> Spatial Mapping](#21-hololens--spatial-mapping)
-  - [2.2. Hololens \> Spatial Audio](#22-hololens--spatial-audio)
-  - [2.3. Hololens \> Voice Input](#23-hololens--voice-input)
-  - [2.4. Unity \> Raycast](#24-unity--raycast)
-- [3. Analysis Phase](#3-analysis-phase)
-- [4. Development Phase](#4-development-phase)
-  - [4.1. Voice Commands](#41-voice-commands)
-- [5. How to use](#5-how-to-use)
-- [6. Appendix](#6-appendix)
+# Thesis Project - Development of a mixed reality system to support individuals with vision impairment
 
 # 1. Introduction
 The scope of this thesis project is to develop an app for Hololens 2, which will assist users who face vision impairment (partial or complete vision loss) t and would like to navigate in a specific area, unknown to them.
