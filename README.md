@@ -101,23 +101,23 @@ The application was developed in Unity using MRTK (Mixed Reality Toolkit) and C#
 [^3.1]: Unity doesn't have a specific unit of measurement for distances, so the generic term **units** is used. We can accept that: $1 unit \approx 1 meter$.
 [^3.2]: The mesh is retrieved from the spatial mapping.
 
-# 5. Experiment
+# 4. Experiment
 
-## 5.1. Experiment Design
+## 4.1. Experiment Design
 
 Ten volunteers participated in a controlled experiment where they completed a navigation task twice: once using only a traditional cane, and once using the HoloLens 2 application. The test environment included obstacles of varying sizes and placements. Timing, error frequency, and user feedback were recorded for comparison between the two methods. Participants also completed the SUS (System Usability Scale) questionnaire.
 
-## 5.2. Experiment Results
+## 4.2. Experiment Results
 
 Results showed that participants took longer to complete the path using the HoloLens-based system compared to the cane, with a statistically significant average increase of ~131 seconds. However, the application significantly reduced navigation errors. SUS scores indicated positive user perception, especially regarding directional audio cues and obstacle warnings. Some issues such as delayed recognition and sensor sensitivity were also noted as areas for future improvement.
 
-# 4. How to use
+# 5. How to use
 - Wear the Hololens 2 headset and launch the app
 - On startup, a scan of the environment will be done (in the direction of user's gaze) in order to retrieve the mesh (spatial mapping). This scan is done in intervals of 3.5 seconds.
 - The user can use any of the available [voice commands](#41-voice-commands).
   - It is suggested the user to use frequently the `Scan` command.
 
-# 5. Appendix
+# 6. Appendix
 - <a name="appendix-alert-box">**Alert Box**</a>: A GameObject, to which has been attached an Audio Source that plays a sound in order to alert the user. In the app, they are visualized as a blue or green cube.\
 <div margin="10px 0" align="center">
   <img width="25%" src="./Assets/alert-boxes.png" />
