@@ -67,42 +67,57 @@ The technology (devices, software), which was used during the development of the
 - Hololens Emulator
 
 ## 2.1. Hololens > Spatial Mapping
-...
+
+Spatial Mapping is a core feature of the HoloLens 2 that scans the user's surroundings and creates a real-time 3D mesh model. This mesh enables virtual objects to interact realistically with the environment, adhering to surfaces, occluding behind obstacles, and responding to physical constraints. In the project, this functionality was used to map the interior space and detect obstacles by analyzing surface geometry, enabling a realistic mixed-reality experience for visually impaired users.
+
 
 ## 2.2. Hololens > Spatial Audio
-...
+
+Spatial Audio simulates sound direction and distance using head-related transfer functions (HRTFs), allowing users to perceive where a sound is coming from in 3D space. The HoloLens 2 achieves this through built-in speakers on both sides of the headset. This project uses spatial audio to alert users about nearby obstacles, allowing them to identify the direction of a hazard without visual input.
+
 
 ## 2.3. Hololens > Voice Input
-...
+
+Voice input on HoloLens 2 allows users to interact with the system hands-free using spoken commands. It follows the "See It, Say It" model, where visible UI elements suggest available voice commands. The device uses a five-channel microphone array to capture input and supports natural language recognition. In this project, voice commands were implemented via Unity’s SpeechInputHandler, enabling users to trigger obstacle detection and navigation functions without relying on physical gestures — a key accessibility feature for users with visual impairments or mobility restrictions.
+
 
 ## 2.4. Unity > Raycast
-...
 
-# 3. Analysis Phase
-...
+Raycasting in Unity involves projecting an invisible line (ray) from a point in space (usually a camera or controller) and checking for collisions with game objects. It is used to detect and interact with the virtual environment. In this project, raycasting was used for obstacle detection and voice-triggered navigation, ensuring that the user could receive alerts based on the direction they were facing or pointing.
 
-# 4. Development Phase
-...
+# 3. Development Phase
 
-## 4.1. Voice Commands
+The application was developed in Unity using MRTK (Mixed Reality Toolkit) and C#. Spatial Mapping created a live mesh of the environment, crucial for detecting and avoiding obstacles. Spatial Audio was implemented with Microsoft Spatializer to deliver directional sound alerts. Voice commands allowed interaction with minimal physical input, improving accessibility. Raycasting was employed for obstacle detection and spatial interactions. The codebase was modular and responsive, and testing focused on interaction timing and real-world usability. Tools like Visual Studio and the HoloLens emulator aided in continuous integration and debugging.
+
+## 3.1. Voice Commands
 |Voice Command | Description |
 | ------------ | ----------- |
-| `Scan` | 9 rays are casted from multiple positions ([Raycasts Origin Point](#6-appendix)), as they are displayed in the image:<div margin="10px 0" align="center"><img width="25%" src="./Assets/raycast-origin-points.png"></div>The first row is placed at the height of user's gaze. The distance between each Origin Point with its adjacent ones is 0.5 units[^4.1].<br/>When a ray hits the mesh[^4.2] of the room, then an [alert box](#6-appendix) is placed at the hit point in order to alert the user for an obstacle. One alert box correspond to each raycast. If the ray doesn't hit the mesh within 5 units[^4.1], then its alert box is deactivated.<br>If the user uses the command again, the alert boxes are moved to the new hit points.<br><br>**<u>Note</u>**: If the user turns his gaze, the alert boxes stay in their positions. For the alert boxes to follow the movement of the user's head, use the command `Continuous Mode`. |
+| `Scan` | 9 rays are casted from multiple positions ([Raycasts Origin Point](#6-appendix)), as they are displayed in the image:<div margin="10px 0" align="center"><img width="25%" src="./Assets/raycast-origin-points.png"></div>The first row is placed at the height of user's gaze. The distance between each Origin Point with its adjacent ones is 0.5 units[^3.1].<br/>When a ray hits the mesh[^3.2] of the room, then an [alert box](#6-appendix) is placed at the hit point in order to alert the user for an obstacle. One alert box correspond to each raycast. If the ray doesn't hit the mesh within 5 units[^4.1], then its alert box is deactivated.<br>If the user uses the command again, the alert boxes are moved to the new hit points.<br><br>**<u>Note</u>**: If the user turns his gaze, the alert boxes stay in their positions. For the alert boxes to follow the movement of the user's head, use the command `Continuous Mode`. |
 | `Stop` | All alert boxes are deactivated. |
-| `Continuous Mode` | When this mode is activated, then the rays (which have been selected to be activated for this mode) are casted in each frame. The alert boxes are placed on the hit points. Since the rays are casted in each update, this means that the alert boxes follow the movement of user's head.<br>Using the same command, the mode is deactivated.<br><br>**<u>Note</u>**: For now, only one ray is casted in this mode at the height of user's gaze. |
+| `Continuous Mode` | When this mode is activated, then the rays (which have been selected to be activated for this mode) are casted in each frame. The alert boxes are placed on the hit points. Since the rays are casted in each update, this means that the alert boxes follow the movement of user's head.<br>Using the same command, the mode is deactivated. |
 | `Hands Mode` | When this mode is activated, then, if the user place his hand in front of him, at the end of the pointer, which extends from his arm and works as a raycast, an alert box is placed in the hit point between the pointer and the mesh[^4.2].<div margin="10px 0" align="center"><img width="25%" src="./Assets/hand-alert-box.png"></div>If no point of the mesh is hit by the pointer, the alert box is deactivated. If the user uses the same command, the mode is deactivated.<br><br>**<u>Note</u>**: If the user does the pinch gesture, the sound of the alert box is temporarily muted. If the user "release" the gesture, the sound is unmuted. <div margin="10px 0" align="center"><img width="25%" src="./Assets/hand-alert-box-pinch.png"></div> |
 
 
-[^4.1]: Unity doesn't have a specific unit of measurement for distances, so the generic term **units** is used. We can accept that: $1 unit \approx 1 meter$.
-[^4.2]: The mesh is retrieved from the spatial mapping.
+[^3.1]: Unity doesn't have a specific unit of measurement for distances, so the generic term **units** is used. We can accept that: $1 unit \approx 1 meter$.
+[^3.2]: The mesh is retrieved from the spatial mapping.
 
-# 5. How to use
+# 5. Experiment
+
+## 5.1. Experiment Design
+
+Ten volunteers participated in a controlled experiment where they completed a navigation task twice: once using only a traditional cane, and once using the HoloLens 2 application. The test environment included obstacles of varying sizes and placements. Timing, error frequency, and user feedback were recorded for comparison between the two methods. Participants also completed the SUS (System Usability Scale) questionnaire.
+
+## 5.2. Experiment Results
+
+Results showed that participants took longer to complete the path using the HoloLens-based system compared to the cane, with a statistically significant average increase of ~131 seconds. However, the application significantly reduced navigation errors. SUS scores indicated positive user perception, especially regarding directional audio cues and obstacle warnings. Some issues such as delayed recognition and sensor sensitivity were also noted as areas for future improvement.
+
+# 4. How to use
 - Wear the Hololens 2 headset and launch the app
 - On startup, a scan of the environment will be done (in the direction of user's gaze) in order to retrieve the mesh (spatial mapping). This scan is done in intervals of 3.5 seconds.
 - The user can use any of the available [voice commands](#41-voice-commands).
   - It is suggested the user to use frequently the `Scan` command.
 
-# 6. Appendix
+# 5. Appendix
 - <a name="appendix-alert-box">**Alert Box**</a>: A GameObject, to which has been attached an Audio Source that plays a sound in order to alert the user. In the app, they are visualized as a blue or green cube.\
 <div margin="10px 0" align="center">
   <img width="25%" src="./Assets/alert-boxes.png" />
